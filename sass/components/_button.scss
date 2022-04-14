@@ -1,0 +1,14 @@
+.btn {
+  @include police-txt-second;
+  color: #ffffff;
+  font-size: 20px;
+  background-color: #fd2d01;
+  color: #ffffff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  margin-left: 15%;
+  border: #fd2d01;
+  border-radius: 13px;
+  cursor: pointer;
+}

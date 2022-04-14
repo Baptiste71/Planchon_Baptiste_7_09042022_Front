@@ -1,0 +1,51 @@
+/* Police d'écriture */
+
+@mixin police-txt {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+@mixin police-txt-second {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+/* Flexbox */
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-direction-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-direction-column-home_page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+@mixin flex-direction-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Responsive */
+
+@mixin tablets-home {
+  @media screen and (min-width: $breakpoints-tablets) {
+    @include flex-center;
+  }
+}
