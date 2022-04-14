@@ -1,0 +1,19 @@
+{
+  "name": "planchon_baptiste_7_09042022_front",
+  "version": "1.0.0",
+  "description": "Frontend du site Groupomania",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:.public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Baptiste71/Planchon_Baptiste_7_09042022_Front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Baptiste71/Planchon_Baptiste_7_09042022_Front/issues"
+  },
+  "homepage": "https://github.com/Baptiste71/Planchon_Baptiste_7_09042022_Front#readme"
+}
