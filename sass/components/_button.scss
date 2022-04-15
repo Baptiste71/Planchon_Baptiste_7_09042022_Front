@@ -1,4 +1,6 @@
 .btn {
+  @include desktop-home-btn;
+  @include tablets-home-btn;
   @include police-txt-second;
   color: #ffffff;
   font-size: 20px;

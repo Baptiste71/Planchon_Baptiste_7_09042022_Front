@@ -2,6 +2,8 @@
 /* Police d'écriture */
 /* Flexbox */
 /* Responsive */
+/* Reponsive page accueil tablette et desktop */
+/* Desktop accueil */
 .btn {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -17,26 +19,81 @@
   border-radius: 13px;
   cursor: pointer;
 }
+@media screen and (min-width: 850px) {
+  .btn {
+    display: flex;
+    justify-content: center;
+    margin-left: 0%;
+    width: 40%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .btn {
+    display: flex;
+    justify-content: center;
+    margin-left: 0%;
+    width: 60%;
+  }
+}
 
 .background_groupomania {
-  width: 100%;
-  height: 100%;
   display: flex;
   align-content: flex-end;
+  width: 100%;
+  height: 100%;
   top: 25%;
   position: absolute;
+}
+@media screen and (min-width: 850px) {
+  .background_groupomania {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 800px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .background_groupomania {
+    display: flex;
+    align-content: flex-end;
+    width: 100%;
+    height: 0%;
+  }
 }
 
 .logo_groupomania {
   width: 100%;
-  height: 300px;
+  height: 350px;
   object-fit: cover;
   z-index: -1;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 850px) {
   .logo_groupomania {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    margin-left: 0%;
+    width: 100%;
+    position: absolute;
+    top: 25%;
+    object-fit: cover;
+  }
+}
+@media screen and (min-width: 850px) {
+  .logo_groupomania {
+    display: flex;
+    align-items: center;
+    margin-left: 0%;
+    width: 50%;
+    height: 400px;
+    object-fit: cover;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .logo_groupomania {
+    display: flex;
+    align-items: center;
+    margin-left: 0%;
+    width: 100%;
   }
 }
 
@@ -50,10 +107,28 @@
   position: absolute;
   top: 50%;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 850px) {
   .two_parts {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    top: 70%;
+    margin-top: 0px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .two_parts {
+    position: absolute;
+    top: 60%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .two_parts {
+    display: flex;
+    align-items: center;
+    margin-left: 0%;
+    width: 100%;
   }
 }
 
@@ -68,10 +143,39 @@
   margin-bottom: 2%;
   margin-left: 10%;
 }
+@media screen and (min-width: 850px) {
+  .presentation {
+    margin-left: 0%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .presentation {
+    display: flex;
+    align-items: center;
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 
 .connection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 60%;
   height: 60px;
+}
+@media screen and (min-width: 850px) {
+  .connection {
+    margin-left: 0%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .connection {
+    display: flex;
+    align-items: center;
+    margin-left: 0%;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
