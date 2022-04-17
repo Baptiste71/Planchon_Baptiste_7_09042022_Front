@@ -4,34 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Groupomania</title>
-    <link rel="stylesheet" href="./.public/css/style.css" />
-    <link rel="stylesheet" href="./.public/css/normalize.css" />
+    <link rel="stylesheet" href="../.public/css/style.css" />
+    <link rel="stylesheet" href="../.public/css/normalize.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
     <link rel="icon" type="image/png" sizes="16x16" href="../images\icon.webp" />
   </head>
 
   <body>
-    <div class="all_elements">
-      <div class="title">
-        <h1>Login</h1>
+    <section>
+      <div class="all_elements">
+        <div class="title">
+          <h1>Login</h1>
+        </div>
+        <div class="form_login">
+          <form class="account" action="#" method="get">
+            <div class="login">
+              <input class="input_account" type="email" name="user_email" placeholder="Email" required />
+            </div>
+            <div class="login">
+              <input class="input_account" type="password" name="user_password" placeholder="Password" required />
+            </div>
+            <div class="btn_login-page">
+              <div class="login_btn_white">
+                <input class="register-btn" type="submit" value="Register" />
+              </div>
+              <div class="login_btn">
+                <input class="login-btn-red" type="submit" value="Login" />
+              </div>
+            </div>
+
+            <a class="link_forgot" href="./new_password.html">Forgot Password or Email ?</a>
+          </form>
+        </div>
       </div>
-      <div class="form_login">
-        <form class="account" action="#" method="get">
-          <div class="login">
-            <input type="email" name="user_email" placeholder="Email" required />
-          </div>
-          <div class="login">
-            <input type="password" name="user_password" placeholder="Password" required />
-          </div>
-          <div class="login_btn_white">
-            <input type="submit" value="Register" />
-          </div>
-          <div class="login_btn">
-            <input type="submit" value="Login" />
-          </div>
-          <a class="link_forgot" href="./new_password.html">Forgot Password or Email ?</a>
-        </form>
-      </div>
-    </div>
+    </section>
   </body>
 </html>

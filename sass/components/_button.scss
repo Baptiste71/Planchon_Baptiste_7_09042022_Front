@@ -1,3 +1,5 @@
+/* Bouton page d'accueil */
+
 .btn {
   @include desktop-home-btn;
   @include tablets-home-btn;
@@ -10,6 +12,39 @@
   padding-bottom: 15px;
   width: 100%;
   margin-left: 15%;
+  border: $primary-color;
+  border-radius: 13px;
+  cursor: pointer;
+}
+
+/* Bouton page Login */
+
+.register-btn {
+  @include desktop-home-btn;
+  @include tablets-home-btn;
+  @include police-txt-second;
+  color: grey;
+  font-size: 20px;
+  background-color: $second-color;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  border: $primary-color;
+  border-radius: 13px;
+  cursor: pointer;
+}
+
+.login-btn-red {
+  @include desktop-home-btn;
+  @include tablets-home-btn;
+  @include police-txt-second;
+  color: $second-color;
+  font-size: 20px;
+  background-color: $primary-color;
+  color: $second-color;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
   border: $primary-color;
   border-radius: 13px;
   cursor: pointer;

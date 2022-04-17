@@ -1,0 +1,46 @@
+.account {
+  width: 100%;
+}
+
+.form_login {
+  width: 100%;
+}
+
+.title {
+  @include police-txt-second;
+  color: $primary-color;
+  margin-left: 5%;
+}
+
+.login {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.input_account {
+  background-color: $input-color;
+  border-radius: 10px;
+  border-style: none;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.btn_login-page {
+  @include flex-direction-row;
+  justify-content: center;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.login_btn_white {
+  width: 50%;
+}
+
+.login_btn {
+  width: 50%;
+}
+
+.link_forgot {
+  @include flex-jc-flexend;
+}

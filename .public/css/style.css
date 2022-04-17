@@ -4,11 +4,14 @@
 /* Responsive */
 /* Reponsive page accueil tablette et desktop */
 /* Desktop accueil */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 a {
   text-decoration: none;
   color: black;
 }
 
+/* Bouton page d'accueil */
 .btn {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -39,6 +42,118 @@ a {
     margin-left: 0%;
     width: 60%;
   }
+}
+
+/* Bouton page Login */
+.register-btn {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: grey;
+  font-size: 20px;
+  background-color: #ffffff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  border: #fd2d01;
+  border-radius: 13px;
+  cursor: pointer;
+}
+@media screen and (min-width: 850px) {
+  .register-btn {
+    display: flex;
+    justify-content: center;
+    margin-left: 0%;
+    width: 40%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .register-btn {
+    display: flex;
+    justify-content: center;
+    margin-left: 0%;
+    width: 60%;
+  }
+}
+
+.login-btn-red {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 20px;
+  background-color: #fd2d01;
+  color: #ffffff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  border: #fd2d01;
+  border-radius: 13px;
+  cursor: pointer;
+}
+@media screen and (min-width: 850px) {
+  .login-btn-red {
+    display: flex;
+    justify-content: center;
+    margin-left: 0%;
+    width: 40%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .login-btn-red {
+    display: flex;
+    justify-content: center;
+    margin-left: 0%;
+    width: 60%;
+  }
+}
+
+.account {
+  width: 100%;
+}
+
+.form_login {
+  width: 100%;
+}
+
+.title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #fd2d01;
+  margin-left: 5%;
+}
+
+.login {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.input_account {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  border-style: none;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.btn_login-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.login_btn_white {
+  width: 50%;
+}
+
+.login_btn {
+  width: 50%;
+}
+
+.link_forgot {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .background_groupomania {

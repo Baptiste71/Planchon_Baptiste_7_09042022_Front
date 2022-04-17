@@ -20,6 +20,11 @@
   align-content: flex-end;
 }
 
+@mixin flex-jc-flexend {
+  display: flex;
+  justify-content: flex-end;
+}
+
 @mixin flex-direction-column {
   display: flex;
   flex-direction: column;
