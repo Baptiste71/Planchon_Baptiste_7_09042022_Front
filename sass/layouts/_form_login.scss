@@ -1,3 +1,17 @@
+section {
+  @include section-center;
+}
+
+.all_elements {
+  @include desktop-center-login;
+  @include tablet-center-login;
+  @include flex-direction-column;
+  justify-content: center;
+  width: 100%;
+  height: 650px;
+  margin-top: 6%;
+}
+
 .account {
   width: 100%;
 }
@@ -18,12 +32,26 @@
 }
 
 .input_account {
+  @include input-account;
   background-color: $input-color;
   border-radius: 10px;
   border-style: none;
-  width: 100%;
+  width: 95%;
   height: 50px;
   margin-bottom: 20px;
+}
+
+input {
+  @include police-txt-second;
+  font-size: 20px;
+  color: black;
+  outline-style: none;
+  padding-left: 5%;
+}
+
+::placeholder {
+  font-size: 20px;
+  color: $placeholder-color;
 }
 
 .btn_login-page {
@@ -41,6 +69,20 @@
   width: 50%;
 }
 
-.link_forgot {
+.link {
   @include flex-jc-flexend;
+  width: 100%;
+  margin-right: 5%;
+}
+
+.link_password {
+  @include flex-center;
+  width: 52%;
+}
+
+.link_forgot {
+  @include flex-center;
+  @include police-txt-second;
+  margin-top: 15px;
+  cursor: pointer;
 }

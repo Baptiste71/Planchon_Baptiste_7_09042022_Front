@@ -157,3 +157,34 @@
     width: 40%;
   }
 }
+
+/* Reponsive page login tablette et desktop */
+
+@mixin input-account {
+  @media screen and (min-width: $breakpoints-tablets) and (max-width: $breakpoints-desktop) {
+    width: 95%;
+  }
+}
+
+@mixin tablet-center-login {
+  @media screen and (min-width: $breakpoints-tablets) and (max-width: $breakpoints-desktop) {
+    @include flex-center;
+    width: 100%;
+    margin-top: 20%;
+  }
+}
+
+@mixin desktop-center-login {
+  @media screen and (min-width: $breakpoints-desktop) {
+    @include flex-center;
+    width: 75%;
+    margin-top: 6%;
+  }
+}
+
+@mixin section-center {
+  @media screen and (min-width: $breakpoints-desktop) {
+    @include flex-center;
+    width: 100%;
+  }
+}

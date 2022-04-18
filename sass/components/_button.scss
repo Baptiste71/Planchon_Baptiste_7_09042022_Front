@@ -20,8 +20,8 @@
 /* Bouton page Login */
 
 .register-btn {
-  @include desktop-home-btn;
-  @include tablets-home-btn;
+  //@include desktop-home-btn;
+  //@include tablets-home-btn;
   @include police-txt-second;
   color: grey;
   font-size: 20px;
@@ -35,8 +35,8 @@
 }
 
 .login-btn-red {
-  @include desktop-home-btn;
-  @include tablets-home-btn;
+  // @include desktop-home-btn;
+  // @include tablets-home-btn;
   @include police-txt-second;
   color: $second-color;
   font-size: 20px;
