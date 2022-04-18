@@ -327,6 +327,12 @@ input {
   }
 }
 
+.form-home {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .connection {
   display: flex;
   justify-content: center;

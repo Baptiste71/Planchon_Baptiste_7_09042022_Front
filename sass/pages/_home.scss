@@ -39,6 +39,12 @@
   margin-bottom: 2%;
   margin-left: 10%;
 }
+
+.form-home {
+  @include flex-center;
+  width: 100%;
+}
+
 .connection {
   @include margin-left;
   @include tablets-home;
