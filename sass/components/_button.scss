@@ -17,6 +17,10 @@
   cursor: pointer;
 }
 
+.btn:hover {
+  box-shadow: 0px 6px 10px #1d1d1d;
+}
+
 /* Bouton page Login */
 
 .register-btn {
@@ -34,6 +38,10 @@
   cursor: pointer;
 }
 
+.register-btn:hover {
+  box-shadow: 0px 6px 10px #1d1d1d;
+}
+
 .login-btn-red {
   // @include desktop-home-btn;
   // @include tablets-home-btn;
@@ -48,4 +56,8 @@
   border: $primary-color;
   border-radius: 13px;
   cursor: pointer;
+}
+
+.login-btn-red:hover {
+  box-shadow: 0px 6px 10px #1d1d1d;
 }
