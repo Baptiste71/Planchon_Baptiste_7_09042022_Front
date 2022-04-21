@@ -1,4 +1,5 @@
 import React from "react";
+import Button_forum from "../components/Button_forum";
 
 const Register = () => {
   return (
@@ -20,9 +21,7 @@ const Register = () => {
               <input className="input_account" type="password" name="user_password" placeholder="Password" required />
             </div>
             <div className="btn_login-page">
-              <div className="login_btn">
-                <input className="login-btn-red" type="submit" value="Sign up" />
-              </div>
+              <Button_forum />
             </div>
           </form>
         </div>

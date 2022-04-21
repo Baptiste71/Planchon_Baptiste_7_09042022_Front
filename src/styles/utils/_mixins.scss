@@ -158,6 +158,12 @@
   }
 }
 
+@mixin button_login {
+  @media screen and (min-width: $breakpoints-desktop) {
+    @include flex-center;
+  }
+}
+
 /* Reponsive page login tablette et desktop */
 
 @mixin input-account {

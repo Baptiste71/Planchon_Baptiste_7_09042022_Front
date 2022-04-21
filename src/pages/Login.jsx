@@ -1,4 +1,7 @@
 import React from "react";
+import Button_forum from "../components/Button_forum";
+import Button_register from "../components/Button_register";
+import Link_password from "../components/Link_password";
 
 const Login = () => {
   return (
@@ -14,21 +17,13 @@ const Login = () => {
               <input className="input_account" type="password" name="user_password" placeholder="Password" required />
             </div>
             <div className="btn_login-page">
-              <div className="login_btn_white">
-                <input className="register-btn" type="button" value="Register" />
-              </div>
-              <div className="login_btn">
-                <input className="login-btn-red" type="submit" value="Login" />
-              </div>
+              <Button_register />
+              <Button_forum />
             </div>
           </form>
         </div>
         <div className="link">
-          <div className="link_password">
-            <a className="link_forgot" href="./new_password.html">
-              Forgot Password ?
-            </a>
-          </div>
+          <Link_password />
         </div>
       </div>
     </div>

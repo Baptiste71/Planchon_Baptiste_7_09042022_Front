@@ -1,4 +1,5 @@
 import React from "react";
+import Button_login from "../components/Button_connection";
 
 const NewPassword = () => {
   return (
@@ -17,9 +18,7 @@ const NewPassword = () => {
               <input className="input_account" type="password" name="user_password" placeholder=" Confirm New Password" required />
             </div>
             <div className="btn_login-page">
-              <div className="login_btn">
-                <input className="login-btn-red" type="submit" value=" Back to Login" />
-              </div>
+              <Button_login />
             </div>
           </form>
         </div>

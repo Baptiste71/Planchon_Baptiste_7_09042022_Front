@@ -21,9 +21,18 @@
   box-shadow: 0px 6px 10px #1d1d1d;
 }
 
+.button_login {
+  @include button_login;
+  width: 100%;
+}
+
+.btn_description {
+  color: $second-color;
+}
+
 /* Bouton page Login */
 
-.register-btn {
+.btn-register {
   //@include desktop-home-btn;
   //@include tablets-home-btn;
   @include police-txt-second;
@@ -38,7 +47,15 @@
   cursor: pointer;
 }
 
-.register-btn:hover {
+.button_register {
+  width: 50%;
+}
+
+.btn_description_register {
+  color: grey;
+}
+
+.btn-register:hover {
   box-shadow: 0px 6px 10px #1d1d1d;
 }
 
