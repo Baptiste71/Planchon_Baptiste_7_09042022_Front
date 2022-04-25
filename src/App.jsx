@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NewPassword from "./pages/NewPassword";
 import Register from "./pages/Register";
+import "./App.scss";
 
 const App = () => {
   return (

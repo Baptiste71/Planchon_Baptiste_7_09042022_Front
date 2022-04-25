@@ -1,5 +1,4 @@
 import Button_connection from "../components/Button_connection";
-import Button_login from "../components/Button_connection";
 
 const Home = () => {
   return (

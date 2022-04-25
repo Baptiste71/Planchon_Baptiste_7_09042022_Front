@@ -1,9 +1,32 @@
-import React from "react";
+import { Axios } from "axios";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Button_forum from "../components/Button_forum";
 import Button_register from "../components/Button_register";
 import Link_password from "../components/Link_password";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
+
+  const Auth = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:5000/login", {
+        email: email,
+        password: password,
+      });
+      navigate.push("/forum");
+    } catch (error) {
+      if (error.response) {
+        setMsg(error.response.data.msg);
+      }
+    }
+  };
+
   return (
     <div className="login_section">
       <div className="all_elements">
