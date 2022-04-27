@@ -1,4 +1,3 @@
-import { Axios } from "axios";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +11,7 @@ const Login = () => {
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
 
-  const Auth = async (e) => {
+  const auth = async (e) => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:5000/login", {
@@ -32,12 +31,12 @@ const Login = () => {
       <div className="all_elements">
         <h1>Login</h1>
         <div className="form_login">
-          <form className="account" action="#" method="get">
+          <form className="account" onSubmit={auth}>
             <div className="login">
-              <input className="input_account" type="email" name="user_email" placeholder="Email" required />
+              <input className="input_account" type="email" name="user_email" placeholder="Email" required onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div className="login">
-              <input className="input_account" type="password" name="user_password" placeholder="Password" required />
+              <input className="input_account" type="password" name="user_password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div className="btn_login-page">
               <Button_register />

@@ -5,13 +5,13 @@ const Button_login = () => {
   return (
     <div className="button_login">
       <div className="connection">
-        <form className="form-home">
+        <div className="form-home">
           <button className="btn">
             <NavLink className="btn_description" to="/login">
               Back to login !
             </NavLink>
           </button>
-        </form>
+        </div>
       </div>
     </div>
   );

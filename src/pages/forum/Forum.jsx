@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-import Headers_forum from "../components/Headers_forum";
-import Groupomania_news from "../components/Groupomania_news";
+import Headers_forum from "./components/header/Headers_forum";
+import Groupomania_news from "./components/groupomania_news/Groupomania_news";
 
 const Forum = () => {
   // const [firstname, setFirstname] = useState("");

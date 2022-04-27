@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [firstname, setFirstname] = useState("");
-  const [lastname, setFLastname] = useState("");
+  const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
 
-  const Register = async (e) => {
+  const createUser = async (e) => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:5000/user", {
@@ -33,18 +33,18 @@ const Register = () => {
       <div className="all_elements">
         <h1>Register</h1>
         <div className="form_login">
-          <form className="account" action="#" method="get">
+          <form className="account" onSubmit={createUser}>
             <div className="login">
-              <input className="input_account" type="text" name="firstname" placeholder="Firstname" required />
+              <input className="input_account" type="text" name="firstname" placeholder="Firstname" required onChange={(e) => setFirstname(e.target.value)} />
             </div>
             <div className="login">
-              <input className="input_account" type="text" name="lastname" placeholder="Lastname" required />
+              <input className="input_account" type="text" name="lastname" placeholder="Lastname" required onChange={(e) => setLastname(e.target.value)} />
             </div>
             <div className="login">
-              <input className="input_account" type="email" name="user_email" placeholder="Email" required />
+              <input className="input_account" type="email" name="user_email" placeholder="Email" required onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div className="login">
-              <input className="input_account" type="password" name="user_password" placeholder="Password" required />
+              <input className="input_account" type="password" name="user_password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div className="btn_login-page">
               <Button_forum />

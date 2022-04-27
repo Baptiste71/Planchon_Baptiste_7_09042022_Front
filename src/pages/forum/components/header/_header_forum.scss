@@ -1,0 +1,31 @@
+@import "../../../../styles/utils/_mixins.scss";
+@import "../../../../styles/utils/_variables.scss";
+
+.header {
+  background-color: $background-color-forum;
+}
+
+.icons_connection {
+  @include flex-jc-flexend;
+  margin-top: 3%;
+  margin-right: 5%;
+  width: 100%;
+}
+
+.icons_groupomania_profile {
+  @include flex-center;
+  height: 70px;
+  margin-top: 3%;
+  margin-right: 5%;
+}
+
+.badge {
+  border: 1px solid greenyellow;
+  width: 20px;
+  height: 20px;
+  background-color: greenyellow;
+  border-radius: 45%;
+  position: absolute;
+  right: 28px;
+  top: 67px;
+}

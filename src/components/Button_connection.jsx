@@ -8,7 +8,7 @@ const Button_connection = () => {
         <form className="form-home">
           <button className="btn">
             <NavLink className="btn_description" to="/login">
-              Back to login
+              Connexion
             </NavLink>
           </button>
         </form>

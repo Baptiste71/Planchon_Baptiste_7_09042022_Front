@@ -1,0 +1,38 @@
+@import "../../../../styles/utils/_mixins.scss";
+@import "../../../../styles/utils/_variables.scss";
+
+.last_pinned_msg {
+  background-color: $background-color-forum;
+}
+
+.title h1 {
+  @include police-txt;
+  color: black;
+  width: 75%;
+  font-size: 24px;
+  margin-top: 15px;
+}
+
+.card_post {
+  @include flex-center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.card_post a {
+  width: 90%;
+  border-radius: 13px;
+}
+
+.card_post a:hover {
+  box-shadow: 0px 6px 10px #1d1d1d;
+}
+
+.img_post {
+  @include flex-center;
+  width: 100%;
+}
+
+.img_post img {
+  width: 80%;
+}

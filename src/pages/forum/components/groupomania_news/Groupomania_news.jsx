@@ -1,4 +1,5 @@
 import React from "react";
+import "./_groupomania_news.scss";
 
 const Groupomania_news = () => {
   return (
@@ -9,7 +10,7 @@ const Groupomania_news = () => {
       <div className="card_post">
         <a href="#">
           <div className="img_post">
-            <img src="img\icon-left-font.webp" alt="" />
+            <img src="img\grouponamia_rognee.png" alt="Logo groupomania" />
           </div>
         </a>
       </div>
