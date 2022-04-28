@@ -1,0 +1,101 @@
+@import "../../../../styles/utils/_mixins.scss";
+@import "../../../../styles/utils/_variables.scss";
+
+.add_post {
+  @include add_post;
+  @include section_forum;
+  background-color: $background-color-forum;
+  margin-top: 20px;
+}
+
+.title h1 {
+  @include police-txt;
+  color: black;
+  width: 75%;
+  font-size: 24px;
+  margin-top: 15px;
+}
+
+.profile {
+  @include profile_desktop;
+  @include profile;
+  @include flex-direction-row;
+  align-items: center;
+}
+
+.circle {
+  border: 2px solid $color-pastel-icon;
+  background-color: $color-pastel-icon;
+  width: 50px;
+  height: 50px;
+  border-radius: 45px;
+  margin-left: 10%;
+}
+
+.icon_user {
+  @include flex-center-btn;
+  width: 44px;
+  height: 44px;
+  margin-left: 6%;
+}
+
+.user_name {
+  @include police-txt;
+  font-size: 22px;
+  margin-left: 10%;
+}
+
+.create_post {
+  @include msg;
+  @include msg_desktop;
+  @include flex-direction-column;
+  justify-content: center;
+  width: 100%;
+}
+
+svg.MuiSvgIcon-root.icon_photo {
+  width: 30px;
+  height: 30px;
+  margin-left: 13%;
+  color: $color-pastel-icon;
+  cursor: pointer;
+}
+
+.msg_post {
+  @include msg;
+  @include msg_desktop;
+  margin-left: 10%;
+  margin-bottom: 20px;
+}
+
+.message {
+  @include input-account;
+  background-color: $input-color-forum;
+  border-radius: 10px;
+  border-style: none;
+  width: 70%;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.input_arrow {
+  @include flex-direction-row;
+}
+
+.arrow_send {
+  @include flex-center-home_page;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+svg.MuiSvgIcon-root.sent_msg {
+  width: 30px;
+  height: 30px;
+}
+
+svg.MuiSvgIcon-root.icon_user {
+  width: 44px;
+  height: 44px;
+}

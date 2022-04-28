@@ -19,7 +19,18 @@
   margin-right: 5%;
 }
 
+.content_text {
+  width: 0px;
+  opacity: 0;
+}
+
+.icons_connection:hover .content_text {
+  opacity: 1;
+  cursor: pointer;
+}
+
 .badge {
+  @include header_badge;
   border: 1px solid greenyellow;
   width: 20px;
   height: 20px;

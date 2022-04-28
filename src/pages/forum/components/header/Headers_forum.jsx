@@ -7,7 +7,7 @@ const Headers_forum = () => {
     <div className="header">
       <div className="icons_connection">
         <img className="icons_groupomania_profile" src="img\icon.svg" alt=" logo Groupomania" />
-        <div className="badge"></div>
+        {/*<div className="badge"></div>*/}
       </div>
     </div>
   );

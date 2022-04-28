@@ -4,6 +4,9 @@ import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import Headers_forum from "./components/header/Headers_forum";
 import Groupomania_news from "./components/groupomania_news/Groupomania_news";
+import All_posts from "./components/all posts/All_posts";
+import Add_post from "./components/add_post/Add_post";
+import "./_forum.scss";
 
 const Forum = () => {
   // const [firstname, setFirstname] = useState("");
@@ -68,7 +71,13 @@ const Forum = () => {
   return (
     <div className="all_elements_forum">
       <Headers_forum />
-      <Groupomania_news />
+      <div className="sections_forum">
+        <div className="posts">
+          <Groupomania_news />
+          <All_posts />
+        </div>
+        <Add_post />
+      </div>
     </div>
   );
 };
