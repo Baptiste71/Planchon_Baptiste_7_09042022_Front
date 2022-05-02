@@ -5,11 +5,12 @@ import "./_all_posts.scss";
 const All_posts = () => {
   const [msg, setMsg] = useState("");
   const [files, setFiles] = useState("");
+  const allElements = [setMsg, setFiles];
 
   const everything = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/posts", {
+      await axios.get("http://localhost:5000/posts", {
         file: files,
         message: msg,
       });
@@ -23,7 +24,7 @@ const All_posts = () => {
   const onePost = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/posts/:id", {
+      await axios.get("http://localhost:5000/posts/:id", {
         file: files,
         message: msg,
       });
@@ -41,11 +42,13 @@ const All_posts = () => {
       </div>
       <div className="see_all">
         <button className="see_all_post">
-          <a onSubmit={everything}>See all</a>
+          <a onSubmit={everything} onChange={(e) => allElements(e.target.value)}>
+            See all
+          </a>
         </button>
       </div>
       <div className="card_post">
-        <a onSubmit={onePost}>
+        <a onSubmit={onePost} onChange={(e) => allElements(e.target.value)}>
           <div className="img_post">
             <img src="img\grouponamia_rognee.png" alt="Logo groupomania" />
           </div>

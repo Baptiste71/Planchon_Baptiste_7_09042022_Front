@@ -1,0 +1,13 @@
+@import "../../../../styles/utils/_mixins.scss";
+@import "../../../../styles/utils/_variables.scss";
+
+.headerParams {
+  background-color: $primary-color-dark;
+}
+
+.groupomania {
+  @include headerParamsLogo;
+  @include headerParamsLogoDesktop;
+  height: 150px;
+  margin-left: 5%;
+}

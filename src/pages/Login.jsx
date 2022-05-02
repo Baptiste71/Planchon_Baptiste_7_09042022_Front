@@ -14,11 +14,17 @@ const Login = () => {
   const auth = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/login", {
-        email: email,
-        password: password,
-      });
-      navigate.push("/forum");
+      await axios
+        .post("http://localhost:5000/login", {
+          email: email,
+          password: password,
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            localStorage.setItem("token", res.data.accessToken);
+            navigate("/forum");
+          }
+        });
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);

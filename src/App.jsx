@@ -5,6 +5,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/Login";
 import NewPassword from "./pages/NewPassword";
 import Register from "./pages/Register";
+import Parameters from "./pages/parameters/Parameters";
 import "./App.scss";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/forum" element={<Forum />} />
+        <Route path="/parameters" element={<Parameters />} />
         {/*Le path * fonctionne si aucun url n'est valide*/}
         <Route path="*" element={<Home />} />
       </Routes>

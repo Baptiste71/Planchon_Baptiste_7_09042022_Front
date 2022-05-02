@@ -283,3 +283,17 @@
     width: 95%;
   }
 }
+
+// Responsive page parametres
+
+@mixin headerParamsLogo {
+  @media screen and (min-width: $breakpoints-tablets) and (max-width: $breakpoints-desktop) {
+    height: 200px;
+  }
+}
+
+@mixin headerParamsLogoDesktop {
+  @media screen and (min-width: $breakpoints-desktop) {
+    height: 200px;
+  }
+}
