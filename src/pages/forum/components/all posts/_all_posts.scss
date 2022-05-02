@@ -21,6 +21,16 @@
   margin-right: 5%;
 }
 
+.see_all a {
+  cursor: pointer;
+}
+
+.see_all_post {
+  border-radius: 13px;
+  background-color: $second-color;
+  margin-right: 5%;
+}
+
 .card_post {
   @include flex-center;
   width: 100%;
@@ -30,6 +40,7 @@
 .card_post a {
   width: 90%;
   border-radius: 13px;
+  cursor: pointer;
 }
 
 .card_post a:hover {
