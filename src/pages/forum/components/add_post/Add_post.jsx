@@ -4,7 +4,7 @@ import "./_add_post.scss";
 import PersonIcon from "@material-ui/icons/Person";
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { useNavigate } from "react-router-dom";
+
 import { useForm } from "react-hook-form";
 
 const Add_post = () => {
@@ -16,7 +16,7 @@ const Add_post = () => {
     try {
       const token = localStorage.getItem("token");
       let dataToSend = new FormData();
-      dataToSend.append("file", data.image[0]);
+      dataToSend.append("image", data.image[0]);
       dataToSend.append("message", data.content);
 
       await axios.post("http://localhost:5000/api/posts", dataToSend, {
@@ -51,10 +51,10 @@ const Add_post = () => {
           </button>
           <input
             type="file"
-            accept="image/png, image/jpeg, image/webp"
+            accept="image/*"
             className="input_image"
             {...register("image", {
-              required: false,
+              required: true,
             })}
           />
         </div>
@@ -62,7 +62,7 @@ const Add_post = () => {
           <div className="input_arrow">
             <input className="message" type="text" name="message" />
             <textarea
-              className="add_txt"
+              className="add_txt message"
               {...register("content", {
                 required: true,
               })}

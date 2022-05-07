@@ -18,19 +18,19 @@ const Forum = () => {
   const [user, setUsers] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    getUsers();
-  }, []);
-
-  const getUsers = async () => {
-    const response = await axios.get("http://localhost:5000/user", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    setUsers(response.data);
-  };
-
+  //useEffect(() => {
+  //  getUsers();
+  //}, []);
+  //
+  //const getUsers = async () => {
+  //  const response = await axios.get("http://localhost:5000/user", {
+  //    headers: {
+  //      Authorization: `Bearer ${token}`,
+  //    },
+  //  });
+  //  setUsers(response.data);
+  //};
+  //
   return (
     <div className="all_elements_forum">
       <Headers_forum />

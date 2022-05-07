@@ -1,38 +1,18 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./_all_posts.scss";
 
 const All_posts = () => {
-  const [msg, setMsg] = useState("");
-  const [files, setFiles] = useState("");
-  const allElements = [setMsg, setFiles];
+  const everyPosts = async (data) => {
+    const token = localStorage.getItem("token");
 
-  const everything = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.get("http://localhost:5000/posts", {
-        file: files,
-        message: msg,
-      });
-    } catch (error) {
-      if (error.response) {
-        console.log(error);
-      }
-    }
-  };
-
-  const onePost = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.get("http://localhost:5000/posts/:id", {
-        file: files,
-        message: msg,
-      });
-    } catch (error) {
-      if (error.response) {
-        console.log(error);
-      }
-    }
+    axios
+      .get("http://localhost:5000/api/posts", {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => console.log(res));
   };
 
   return (
@@ -41,14 +21,12 @@ const All_posts = () => {
         <h1>All posts</h1>
       </div>
       <div className="see_all">
-        <button className="see_all_post">
-          <a onSubmit={everything} onChange={(e) => allElements(e.target.value)}>
-            See all
-          </a>
+        <button onClick={everyPosts} className="see_all_post">
+          <a>See all</a>
         </button>
       </div>
       <div className="card_post">
-        <a onSubmit={onePost} onChange={(e) => allElements(e.target.value)}>
+        <a>
           <div className="img_post">
             <img src="img\grouponamia_rognee.png" alt="Logo groupomania" />
           </div>
