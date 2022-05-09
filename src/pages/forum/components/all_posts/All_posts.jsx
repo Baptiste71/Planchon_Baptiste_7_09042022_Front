@@ -1,11 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./_all_posts.scss";
 import { useNavigate } from "react-router-dom";
 import One_post from "../one_post/One_post";
 
 const All_posts = () => {
   const [data, setData] = useState([]);
+  const [post, setlastPost] = useState([]);
   const everyPosts = async (data) => {
     const token = localStorage.getItem("token");
 
@@ -20,17 +21,17 @@ const All_posts = () => {
 
   // aperçu du dernier post
 
-  const lastPost = async () => {
+  useEffect(() => {
     const token = localStorage.getItem("token");
 
     axios
-      .get("http://localhost:5000/api/posts/:id", {
+      .get("http://localhost:5000/api/posts/last", {
         headers: {
           authorization: "Bearer " + token,
         },
       })
-      .then((res) => console.log(res));
-  };
+      .then((res) => setlastPost(res.data));
+  });
 
   return (
     <div className="last_post">
@@ -45,9 +46,9 @@ const All_posts = () => {
       <div className="card_post">
         <a>
           <div className="img_post">
-            <div className="userName">by:</div>
-            <img src="" alt="image du post" />
-            <div className="msg">message:</div>
+            <div className="userName">by:{post.userId} </div>
+            <img src={post.image} alt="image du post" />
+            <div className="msg">message: {post.message}</div>
           </div>
         </a>
         {data.map((posts) => (

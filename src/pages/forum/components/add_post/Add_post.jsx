@@ -60,13 +60,20 @@ const Add_post = () => {
         </div>
         <div className="msg_post">
           <div className="input_arrow">
-            <input className="message" type="text" name="message" />
-            <textarea
-              className="add_txt message"
+            <input
+              className="message"
+              type="text"
+              name="message"
               {...register("content", {
                 required: true,
               })}
-            ></textarea>
+            />
+            {/* <textarea
+              className="add_txt "
+              {...register("content", {
+                required: true,
+              })}
+            ></textarea>*/}
             <button type="submit" className="arrow_send" onSubmit={post}>
               <ChevronRightIcon className="sent_msg" />
             </button>
