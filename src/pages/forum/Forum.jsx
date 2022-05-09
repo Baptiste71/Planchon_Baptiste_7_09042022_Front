@@ -6,6 +6,7 @@ import Headers_forum from "./components/header/Headers_forum";
 import Groupomania_news from "./components/groupomania_news/Groupomania_news";
 import All_posts from "./components/all_posts/All_posts";
 import Add_post from "./components/add_post/Add_post";
+import One_post from "./components/one_post/One_post";
 import "./_forum.scss";
 
 const Forum = () => {
@@ -38,6 +39,7 @@ const Forum = () => {
         <div className="posts">
           <Groupomania_news />
           <All_posts />
+          {/*<One_post />*/}
         </div>
         <Add_post />
       </div>

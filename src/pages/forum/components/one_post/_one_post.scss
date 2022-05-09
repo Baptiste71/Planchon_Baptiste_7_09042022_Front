@@ -1,0 +1,18 @@
+@import "../../../../styles/utils/_mixins.scss";
+@import "../../../../styles/utils/_variables.scss";
+
+.card_post {
+  @include flex-center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.card_post a {
+  width: 90%;
+  border-radius: 13px;
+  cursor: pointer;
+}
+
+.card_post a:hover {
+  box-shadow: 0px 6px 10px #1d1d1d;
+}

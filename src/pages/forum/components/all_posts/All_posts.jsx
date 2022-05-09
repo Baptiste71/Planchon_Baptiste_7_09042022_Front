@@ -1,13 +1,30 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import "./_all_posts.scss";
+import { useNavigate } from "react-router-dom";
+import One_post from "../one_post/One_post";
 
 const All_posts = () => {
+  const [data, setData] = useState([]);
   const everyPosts = async (data) => {
     const token = localStorage.getItem("token");
 
     axios
       .get("http://localhost:5000/api/posts", {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => setData(res.data));
+  };
+
+  // aperçu du dernier post
+
+  const lastPost = async () => {
+    const token = localStorage.getItem("token");
+
+    axios
+      .get("http://localhost:5000/api/posts/:id", {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -28,9 +45,14 @@ const All_posts = () => {
       <div className="card_post">
         <a>
           <div className="img_post">
-            <img src="img\grouponamia_rognee.png" alt="Logo groupomania" />
+            <div className="userName">by:</div>
+            <img src="" alt="image du post" />
+            <div className="msg">message:</div>
           </div>
         </a>
+        {data.map((posts) => (
+          <One_post key={posts.id} post={posts} />
+        ))}
       </div>
     </div>
   );
