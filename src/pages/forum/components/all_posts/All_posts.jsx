@@ -1,59 +1,53 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./_all_posts.scss";
-import { useNavigate } from "react-router-dom";
 import One_post from "../one_post/One_post";
 
-const All_posts = () => {
-  const [data, setData] = useState([]);
-  const [post, setlastPost] = useState([]);
-  const everyPosts = async (data) => {
-    const token = localStorage.getItem("token");
+const All_posts = ({lastPost}) => {
+  const [allPosts, setAllPosts] = useState([]);
 
+  const token = localStorage.getItem("token");
+
+  const getAllPosts = () => {
     axios
       .get("http://localhost:5000/api/posts", {
         headers: {
           authorization: "Bearer " + token,
         },
       })
-      .then((res) => setData(res.data));
+      .then((res) => setAllPosts(res.data))
+      .catch((err) => console.error(err));
   };
 
   // aperçu du dernier post
-
   useEffect(() => {
-    const token = localStorage.getItem("token");
-
     axios
       .get("http://localhost:5000/api/posts/last", {
         headers: {
           authorization: "Bearer " + token,
         },
       })
-      .then((res) => setlastPost(res.data));
-  });
+      .then((res) => lastPost = res.data)
+      .catch((err) => console.error(err));
+  }, [])
 
   return (
     <div className="last_post">
-      <div className="title">
-        <h1>All posts</h1>
-      </div>
-      <div className="see_all">
-        <button onClick={everyPosts} className="see_all_post">
-          <a>See all</a>
-        </button>
-      </div>
+      <h1>All posts</h1>
+      <button onClick={getAllPosts} className="see_all_post">
+        See all
+      </button>
       <div className="card_post">
-        <a>
-          <div className="img_post">
-            <div className="userName">by:{post.userId} </div>
-            <img src={post.image} alt="image du post" />
-            <div className="msg">message: {post.message}</div>
-          </div>
-        </a>
-        {data.map((posts) => (
-          <One_post key={posts.id} post={posts} />
-        ))}
+        <div className="img_post">
+          <p className="userName">by: {lastPost.userId}</p>
+          <img src={lastPost.img} alt="image du post"/>
+          <p className="msg">message: {lastPost.userId}</p>
+        </div>
+        {
+          allPosts.map((singlePost) => (
+            <One_post post={singlePost}/>
+          ))
+        }
       </div>
     </div>
   );

@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import "./_add_post.scss";
 import PersonIcon from "@material-ui/icons/Person";
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
-import { useForm } from "react-hook-form";
+import {useForm} from "react-hook-form";
 
-const Add_post = () => {
-  const [msg, setMsg] = useState("");
-  const [files, setFiles] = useState("");
-  const { register, handleSubmit } = useForm();
+const Add_post = ({lastPost}) => {
+  const {register, handleSubmit} = useForm();
+  const token = localStorage.getItem("token");
 
-  const post = async (data) => {
+  const createPost = async (data) => {
     try {
-      const token = localStorage.getItem("token");
       let dataToSend = new FormData();
       dataToSend.append("image", data.image[0]);
       dataToSend.append("message", data.content);
@@ -23,6 +21,15 @@ const Add_post = () => {
         headers: {
           authorization: "Bearer " + token,
         },
+      }).then(res => {
+        if (res.status === 201) {
+          data.image = null;
+          data.content = null;
+          alert("Post created");
+          lastPost = res.data;
+        } else {
+          alert("Post not created");
+        }
       });
     } catch (error) {
       if (error.response) {
@@ -33,51 +40,38 @@ const Add_post = () => {
 
   return (
     <div className="add_post">
-      <div className="title">
-        <h1>Add post</h1>
-      </div>
+      <h1>Add post</h1>
       <div className="profile">
         <div className="circle">
-          <PersonIcon className="icon_user" />
+          <PersonIcon className="icon_user"/>
         </div>
-        <div className="user_name">
-          <p>Baptiste</p>
-        </div>
+        <p>Baptiste</p>
       </div>
-      <form onSubmit={handleSubmit(post)} className="create_post">
+      <form onSubmit={handleSubmit(createPost)} className="create_post">
         <div className="add_files">
           <button className="add_image">
-            <AddPhotoAlternateIcon className="icon_photo" />
+            <AddPhotoAlternateIcon className="icon_photo"/>
           </button>
           <input
             type="file"
             accept="image/*"
             className="input_image"
             {...register("image", {
-              required: true,
+              required: false,
             })}
           />
         </div>
-        <div className="msg_post">
-          <div className="input_arrow">
-            <input
-              className="message"
-              type="text"
-              name="message"
-              {...register("content", {
-                required: true,
-              })}
-            />
-            {/* <textarea
-              className="add_txt "
-              {...register("content", {
-                required: true,
-              })}
-            ></textarea>*/}
-            <button type="submit" className="arrow_send" onSubmit={post}>
-              <ChevronRightIcon className="sent_msg" />
-            </button>
-          </div>
+        <div className="input_arrow">
+          <input className="message" type="text" name="message"/>
+          <textarea
+            className="add_txt message"
+            {...register("content", {
+              required: true,
+            })}
+          />
+          <button type="submit" className="arrow_send" onSubmit={createPost}>
+            <ChevronRightIcon className="sent_msg"/>
+          </button>
         </div>
       </form>
     </div>
