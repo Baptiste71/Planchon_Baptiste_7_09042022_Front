@@ -3,13 +3,12 @@ import "./_one_post.scss";
 
 // carte complete d'un post: auteur, image, message, commentaire, like/dislike
 
-const One_post = ({post}) => {
-
+const One_post = ({ post }) => {
   return (
     <div className="card">
-      <p className="userName">by:{post.img}</p>
-      <img src={post.img} alt="image du post"/>
-      <p className="msg">message:{post.img}</p>
+      <p className="userName">by:{post.userId}</p>
+      <img src={post.image} alt="image du post" />
+      <p className="msg">{post.message}</p>
     </div>
   );
 };

@@ -1,14 +1,15 @@
-@import "../../../../styles/utils/_mixins.scss";
-@import "../../../../styles/utils/_variables.scss";
+@import "../../../../styles/main.scss";
 
 .last_post {
   @include all_posts;
   @include all_posts_desktop;
   background-color: $background-color-forum;
   margin-top: 40px;
+  width: 90%;
+  margin-left: 5%;
 }
 
-.title h1 {
+h1 {
   @include police-txt;
   color: black;
   width: 75%;
@@ -32,18 +33,31 @@
 }
 
 .card_post {
-  @include flex-center;
+  @include flex-direction-column;
   width: 100%;
   margin-top: 10px;
 }
 
-.card_post a {
-  width: 90%;
+.card {
+  @include post_disposition;
+  border: solid 1px $primary-color;
   border-radius: 13px;
   cursor: pointer;
+  margin-bottom: 1%;
 }
 
-.card_post a:hover {
+.card:hover {
+  box-shadow: 0px 6px 10px #1d1d1d;
+}
+.description_post {
+  @include post_disposition;
+  border: solid 1px $primary-color;
+  border-radius: 13px;
+  cursor: pointer;
+  margin-bottom: 1%;
+}
+
+.description_post:hover {
   box-shadow: 0px 6px 10px #1d1d1d;
 }
 

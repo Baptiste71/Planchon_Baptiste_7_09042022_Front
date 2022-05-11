@@ -14,7 +14,7 @@ const Register = () => {
   const createUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/user", {
+      await axios.post("http://localhost:5000/api/auth/user", {
         firstname: firstname,
         lastname: lastname,
         email: email,
