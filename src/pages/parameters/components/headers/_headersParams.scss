@@ -3,6 +3,8 @@
 
 .headerParams {
   background-color: $primary-color-dark;
+  @include space-between;
+  align-items: center;
 }
 
 .groupomania {
@@ -10,4 +12,19 @@
   @include headerParamsLogoDesktop;
   height: 150px;
   margin-left: 5%;
+  cursor: pointer;
+}
+
+.logoutButton {
+  width: 10%;
+}
+.logout {
+  margin-right: 5%;
+  cursor: pointer;
+  border: 1px solid $primary-color;
+  color: $primary-color-dark;
+  background-color: $color-pastel-icon;
+  border-radius: 13px;
+  height: 40px;
+  width: 40px;
 }
