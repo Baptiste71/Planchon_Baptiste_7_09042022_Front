@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./_headersParams.scss";
 import { useNavigate } from "react-router-dom";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
