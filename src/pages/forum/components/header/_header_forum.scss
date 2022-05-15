@@ -1,20 +1,49 @@
-@import "../../../../styles/utils/_mixins.scss";
-@import "../../../../styles/utils/_variables.scss";
+@import "../../../../style.scss/main.scss";
 
 .header {
-  background-color: $background-color-forum;
+  background-color: $second-color;
+  width: 100%;
+}
+
+.logoGroupomania {
+  width: 50%;
+  @include flex-jc-flexstart;
+}
+
+.params {
+  border: $primary-color-dark;
+  border-radius: 53px;
+  background-color: $second-color;
+  height: 50px;
+  width: 50px;
+  &:hover {
+    box-shadow: 0px 6px 10px #1d1d1d;
+  }
+}
+
+.MuiSvgIcon-root {
+  font-size: 3rem;
+}
+
+.iconSetting {
+  color: $color-pastel-icon;
 }
 
 .icons_connection {
-  @include flex-jc-flexend;
-  margin-top: 3%;
-  margin-right: 5%;
-  width: 100%;
+  @include header_logo_forum;
+  @include space-between;
+  align-items: center;
+  margin: 3% 5% 0% 5%;
+  width: 90%;
+}
+
+.link_params {
+  opacity: 1;
 }
 
 .icons_groupomania_profile {
   @include flex-center;
-  height: 70px;
+  height: 50px;
   margin-top: 3%;
   margin-right: 5%;
 }
@@ -30,7 +59,6 @@
 }
 
 .badge {
-  @include header_badge;
   border: 1px solid greenyellow;
   width: 20px;
   height: 20px;

@@ -38,7 +38,7 @@ const ChangePassword = () => {
               <input className="input_password" type="password" name="user_password" placeholder=" Confirm New Password" required onChange={(e) => setConfirmNewPassword(e.target.value)} />
             </div>
             <div className="submitChange">
-              <button className="btn">Change my password</button>
+              <button className="btn-chg-password">Change my password</button>
             </div>
           </form>
         </div>

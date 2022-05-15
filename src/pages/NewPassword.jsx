@@ -1,5 +1,5 @@
 import React from "react";
-import Button_login from "../components/Button_connection";
+import { NavLink } from "react-router-dom";
 
 const NewPassword = () => {
   return (
@@ -18,7 +18,13 @@ const NewPassword = () => {
               <input className="input_account" type="password" name="user_password" placeholder=" Confirm New Password" required />
             </div>
             <div className="btn_login-page">
-              <Button_login />
+              <form className="form-home">
+                <button className="btn">
+                  <NavLink className="btn_description" to="/login">
+                    Connexion
+                  </NavLink>
+                </button>
+              </form>
             </div>
           </form>
         </div>

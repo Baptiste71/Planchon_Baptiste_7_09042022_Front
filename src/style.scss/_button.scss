@@ -10,8 +10,7 @@
   color: $second-color;
   padding-top: 15px;
   padding-bottom: 15px;
-  width: 100%;
-  margin-left: 15%;
+  width: 50%;
   border: $primary-color;
   border-radius: 13px;
   cursor: pointer;
@@ -70,6 +69,24 @@
   padding-top: 15px;
   padding-bottom: 15px;
   width: 100%;
+  border: $primary-color;
+  border-radius: 13px;
+  cursor: pointer;
+}
+
+.login-btn-red-register {
+  // @include desktop-home-btn;
+  // @include tablets-home-btn;
+  @include police-txt-second;
+  @include flex-center;
+  color: $second-color;
+  font-size: 20px;
+  background-color: $primary-color;
+  color: $second-color;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 50%;
+  margin-left: 25%;
   border: $primary-color;
   border-radius: 13px;
   cursor: pointer;

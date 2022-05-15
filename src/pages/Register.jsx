@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Button_forum from "../components/Button_forum";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -14,13 +14,19 @@ const Register = () => {
   const createUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/user", {
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        password: password,
-      });
-      navigate.push("/");
+      await axios
+        .post("http://localhost:5000/api/auth/user", {
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          password: password,
+        })
+        .then((res) => {
+          if (res.status === 201) {
+            localStorage.setItem("token", res.data.accessToken);
+            navigate("/forum");
+          }
+        });
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);
@@ -47,7 +53,13 @@ const Register = () => {
               <input className="input_account" type="password" name="user_password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div className="btn_login-page">
-              <Button_forum />
+              <div className="login_btn">
+                <button className="login-btn-red-register">
+                  <NavLink className="btn_description" to="/forum">
+                    Login
+                  </NavLink>
+                </button>
+              </div>
             </div>
           </form>
         </div>

@@ -25,6 +25,11 @@
   justify-content: flex-end;
 }
 
+@mixin flex-jc-flexstart {
+  display: flex;
+  justify-content: flex-start;
+}
+
 @mixin flex-direction-column {
   display: flex;
   flex-direction: column;
@@ -181,7 +186,8 @@
 @mixin tablet-center-login {
   @media screen and (min-width: $breakpoints-tablets) and (max-width: $breakpoints-desktop) {
     @include flex-center;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
     margin-top: 20%;
   }
 }
@@ -190,7 +196,7 @@
   @media screen and (min-width: $breakpoints-desktop) {
     @include flex-center;
     width: 75%;
-    margin-top: 15%;
+    margin-top: 3%;
   }
 }
 
@@ -220,10 +226,10 @@
   }
 }
 
-@mixin header_badge {
-  @media screen and (min-width: $breakpoints-tablets) and (max-width: $breakpoints-desktop) {
-    right: 120px;
-    top: 80px;
+@mixin header_logo_forum {
+  @media screen and (min-width: $breakpoints-desktop) {
+    margin-left: 0%;
+    width: 100%;
   }
 }
 

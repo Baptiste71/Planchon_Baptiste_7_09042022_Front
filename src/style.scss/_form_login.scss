@@ -7,14 +7,15 @@
   @include tablet-center-login;
   @include flex-direction-column;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   height: 650px;
   margin-top: 6%;
+  margin-left: 6%;
 }
 
 h1 {
   color: $primary-color;
-  margin-left: 5%;
+  font-size: 30px;
 }
 .account {
   width: 100%;
@@ -25,14 +26,12 @@ h1 {
 }
 
 .title {
-  @include police-txt-second;
   color: $primary-color;
   margin-left: 5%;
 }
 
 .login {
   width: 90%;
-  margin-left: 5%;
 }
 
 .input_account {
@@ -62,8 +61,7 @@ input {
 .btn_login-page {
   @include flex-direction-row;
   justify-content: center;
-  width: 90%;
-  margin-left: 5%;
+  width: 94%;
 }
 
 .login_btn_white {
@@ -71,7 +69,7 @@ input {
 }
 
 .login_btn {
-  width: 50%;
+  width: 100%;
 }
 
 .link {
@@ -82,7 +80,7 @@ input {
 
 .link_password {
   @include flex-center;
-  width: 52%;
+  width: 57%;
 }
 
 .link_forgot {

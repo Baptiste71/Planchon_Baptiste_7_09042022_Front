@@ -1,4 +1,4 @@
-import Button_connection from "../../components/Button_connection";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -10,7 +10,13 @@ const Home = () => {
         <div className="presentation">
           <p>Partagez votre expérience au sein de Groupmania !</p>
         </div>
-        <Button_connection />
+        <form className="form-home">
+          <button className="btn">
+            <NavLink className="btn_description" to="/login">
+              Connexion
+            </NavLink>
+          </button>
+        </form>
       </div>
     </div>
   );

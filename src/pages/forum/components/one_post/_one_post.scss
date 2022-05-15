@@ -1,5 +1,4 @@
-@import "../../../../styles/utils/_mixins.scss";
-@import "../../../../styles/utils/_variables.scss";
+@import "../../../../style.scss/main.scss";
 
 .card_post {
   @include flex-center;

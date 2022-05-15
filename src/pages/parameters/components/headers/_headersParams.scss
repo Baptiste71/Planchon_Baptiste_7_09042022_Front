@@ -1,5 +1,4 @@
-@import "../../../../styles/utils/_mixins.scss";
-@import "../../../../styles/utils/_variables.scss";
+@import "../../../../style.scss/main.scss";
 
 .headerParams {
   background-color: $primary-color-dark;
@@ -17,6 +16,7 @@
 
 .logoutButton {
   width: 10%;
+  margin-right: 5%;
 }
 .logout {
   margin-right: 5%;

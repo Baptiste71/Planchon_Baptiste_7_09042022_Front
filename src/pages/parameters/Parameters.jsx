@@ -7,7 +7,7 @@ import "./_parameters.scss";
 
 const Parameters = () => {
   return (
-    <div className="params">
+    <div className="params-page">
       <div className="allElements"></div>
       <HeadersParams />
       <ChangePassword />

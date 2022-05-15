@@ -1,4 +1,4 @@
-@import "../../../../../styles/main.scss";
+@import "../../../../../style.scss/main.scss";
 
 .deleteAccount {
   background-color: $primary-color-dark;
@@ -15,32 +15,50 @@
 }
 
 .questionDelete {
-  width: 80%;
+  font-size: 20px;
+  text-align: center;
+  width: 86.5%;
   margin-left: 7%;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
   color: $second-color;
 }
+
+.deleteButton {
+  @include desktop-home-btn;
+  @include tablets-home-btn;
+  @include police-txt-second;
+  color: $second-color;
+  font-size: 16px;
+  background-color: $primary-color;
+  color: $second-color;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 70%;
+  border: $primary-color;
+  border-radius: 13px;
+  cursor: pointer;
+}
+
 .btnDelete {
   @include flex-center;
   margin-bottom: 2%;
 }
+.lastChance {
+  @include flex-center;
+  color: $second-color;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
 .deleteButton:hover {
   box-shadow: 0px 6px 10px $second-color;
 }
 
-.lastChance {
-  @include flex-center;
-  color: $second-color;
-  visibility: hidden;
-}
-
-.lastChance:active {
-  @include flex-center;
-  color: $second-color;
-  visibility: inherit;
-}
-
 .theQuestion {
+  @include flex-center;
+  text-align: center;
+  margin-top: 2%;
   width: 100%;
   padding-bottom: 3%;
 }
