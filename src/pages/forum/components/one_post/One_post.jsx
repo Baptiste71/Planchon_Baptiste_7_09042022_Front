@@ -69,7 +69,7 @@ const One_post = ({ post }) => {
 
   return (
     <div className="card">
-      <p className="userName">by:{post.username}</p>
+      <p className="userName">by: {post.username}</p>
       <img src={post.image} alt="image du post" />
       <p className="msg">{post.message}</p>
       <div className="likesAndComments">
@@ -81,7 +81,9 @@ const One_post = ({ post }) => {
             <ThumbDownIcon /> {dislike}
           </button>
         </form>
-        <p className="commentsCounter">comments:{post.commentscounter}</p>
+        <div className="numberOfComments">
+          <p className="commentsCounter">comments: {post.commentscounter}</p>
+        </div>
         <form className="comments" onSubmit={handleSubmit(createComment)}>
           <input
             type="text"

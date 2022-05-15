@@ -33,13 +33,16 @@ const All_posts = ({ lastPost }) => {
 
   return (
     <div className="last_post">
-      <h1>All posts</h1>
-      <button onClick={getAllPosts} className="see_all_post">
-        See all
-      </button>
+      <h1 className="title-forum">All posts</h1>
+      <div className="btn-seeAll">
+        <button onClick={getAllPosts} className="see_all_post">
+          See all
+        </button>
+      </div>
+
       <div className="card_post">
         <div className="description_post">
-          <p className="userName">by:{[lastPost]}</p>
+          <p className="userName">by: {[lastPost]}</p>
           <img src="" alt="image du post" />
           <p className="msg">message: {[lastPost]}</p>
         </div>

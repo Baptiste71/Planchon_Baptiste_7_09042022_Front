@@ -6,11 +6,11 @@ const Groupomania_news = () => {
 
   return (
     <div className="last_pinned_msg">
-      <h1>Groupomania news</h1>
-      <div className="card_post" /*onClick={setPrintText(!printText)}*/>
+      <h1 className="title-forum">Groupomania news</h1>
+      <div className="card_post-pinned" /*onClick={setPrintText(!printText)}*/>
         <div className="img_post">
           <img src="img\grouponamia_rognee.png" alt="Logo groupomania" />
-          <p hidden={printText}>Groupomania</p>
+          {/*<p hidden={printText}>Groupomania</p>*/}
         </div>
       </div>
     </div>

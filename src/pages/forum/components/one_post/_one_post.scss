@@ -12,20 +12,67 @@
   cursor: pointer;
 }
 
-.card_post a:hover {
-  box-shadow: 0px 6px 10px #1d1d1d;
-}
-
 .card img {
-  width: 33%;
+  width: 70%;
 }
 
 .msg {
-  width: 33%;
+  width: 50%;
+  text-align: center;
   @include flex-center;
+  margin-bottom: 6%;
 }
 
 .userName {
-  width: 33%;
+  width: 50%;
   @include flex-center;
+}
+
+.likesAndComments {
+  @include flex-direction-column-two_parts;
+  width: 100%;
+}
+
+.likesAndDislikes {
+  width: 40%;
+  @include space-between;
+}
+
+.likes {
+  color: green;
+}
+
+.dislikes {
+  color: $primary-color;
+}
+
+.numberOfComments {
+  width: 100%;
+  margin-left: 5%;
+}
+
+.commentsCounter {
+  @include flex-jc-flexstart;
+}
+
+.comments {
+  @include flex-direction-row;
+  width: 60%;
+}
+
+.inputComment {
+  width: 70%;
+  margin-bottom: 4%;
+  border: 1px solid $primary-color-dark;
+  background-color: $input-color;
+  border-radius: 13px;
+}
+
+.btnComment {
+  color: $second-color;
+  width: 35%;
+  margin-bottom: 4%;
+  border: 1px solid $primary-color-dark;
+  background-color: $primary-color;
+  border-radius: 13px;
 }
