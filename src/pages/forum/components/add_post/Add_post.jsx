@@ -18,7 +18,7 @@ const Add_post = ({ lastPost }) => {
       dataToSend.append("message", data.content);
 
       await axios
-        .post("http://localhost:5000/api/posts", dataToSend, {
+        .post(process.env.REACT_APP_BDD_LINK + "/api/posts", dataToSend, {
           headers: {
             authorization: "Bearer " + token,
           },

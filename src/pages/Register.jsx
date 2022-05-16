@@ -15,7 +15,7 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios
-        .post("http://localhost:5000/api/auth/user", {
+        .post(process.env.REACT_APP_BDD_LINK + "/api/auth/user", {
           firstname: firstname,
           lastname: lastname,
           email: email,

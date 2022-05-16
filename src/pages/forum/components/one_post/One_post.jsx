@@ -27,7 +27,7 @@ const One_post = ({ post }) => {
       }
 
       const dataToSend = [postId, like, dislike];
-      await axios.post("http://localhost:5000/api/posts/:id/like", dataToSend, {
+      await axios.post(process.env.REACT_APP_BDD_LINK + "/api/posts/:id/like", dataToSend, {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -46,7 +46,7 @@ const One_post = ({ post }) => {
       dataToSend.append("comment", data.content);
 
       await axios
-        .post("http://localhost:5000/api/comments/:id/comment", dataToSend, {
+        .post(process.env.REACT_APP_BDD_LINK + "/api/comments/:id/comment", dataToSend, {
           headers: {
             authorization: "Bearer " + token,
           },

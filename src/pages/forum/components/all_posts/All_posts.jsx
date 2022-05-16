@@ -10,7 +10,7 @@ const All_posts = ({ lastPost }) => {
 
   const getAllPosts = () => {
     axios
-      .get("http://localhost:5000/api/posts", {
+      .get(process.env.REACT_APP_BDD_LINK + "/api/posts", {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -22,7 +22,7 @@ const All_posts = ({ lastPost }) => {
   // aperçu du dernier post
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/posts/last", {
+      .get(process.env.REACT_APP_BDD_LINK + "/api/posts/last", {
         headers: {
           authorization: "Bearer " + token,
         },

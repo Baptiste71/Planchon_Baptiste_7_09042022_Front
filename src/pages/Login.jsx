@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await axios
-        .post("http://localhost:5000/api/auth/login", {
+        .post(process.env.REACT_APP_BDD_LINK + "/api/auth/login", {
           email: email,
           password: password,
         })
