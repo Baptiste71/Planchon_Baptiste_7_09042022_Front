@@ -5,6 +5,7 @@
   @include section_forum;
   background-color: $background-color-forum;
   margin-top: 20px;
+  margin-left: 5%;
 }
 
 .title h1 {
@@ -20,6 +21,7 @@
   @include profile;
   @include flex-direction-row;
   align-items: center;
+  margin-bottom: 3%;
 }
 
 .circle {
@@ -28,7 +30,6 @@
   width: 50px;
   height: 50px;
   border-radius: 45px;
-  margin-left: 10%;
 }
 
 .icon_user {
@@ -59,6 +60,14 @@
   background-color: $second-color;
   margin-left: 15%;
   margin-bottom: 10px;
+}
+
+.add_files {
+  margin-bottom: 3%;
+}
+
+.input_image {
+  width: 75%;
 }
 
 .add_image:hover {

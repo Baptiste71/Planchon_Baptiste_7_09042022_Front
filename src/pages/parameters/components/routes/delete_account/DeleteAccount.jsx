@@ -2,10 +2,11 @@ import React from "react";
 import axios from "axios";
 import "./_delete_account.scss";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const DeleteAccount = () => {
+  const { handleSubmit } = useForm();
   const token = localStorage.getItem("token");
-  const navigate = useNavigate();
 
   const deleteMyAccount = () => {
     let deleteButton = document.getElementById("buttonChoice");
@@ -23,7 +24,7 @@ const DeleteAccount = () => {
 
   const goodbye = () => {
     axios
-      .delete("http://localhost:5000/api/auth/delete", {
+      .delete(process.env.REACT_APP_BDD_LINK + "/api/auth/delete", {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -31,7 +32,6 @@ const DeleteAccount = () => {
       .then((res) => {
         if (res.status === 200) {
           localStorage.clear("token");
-          navigate.push("/home");
           alert("User deleted");
         } else {
           alert("User not deleted");
@@ -49,10 +49,10 @@ const DeleteAccount = () => {
           </button>
         </div>
         <div className="lastChance" id="yesOrNo">
-          <form className="booleanChoice">
+          <form className="booleanChoice" onSubmit={handleSubmit(goodbye)}>
             <label className="theQuestion">Are you sure to delete your account?</label>
             <div className="boolean">
-              <button className="btn_choice" id="yes" onClick={goodbye}>
+              <button className="btn_choice" id="yes" onSubmit={goodbye}>
                 Yes
               </button>
               <button className="btn_choice" id="no">

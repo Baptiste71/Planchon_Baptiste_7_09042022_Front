@@ -42,18 +42,18 @@ const Add_post = ({ lastPost }) => {
 
   return (
     <div className="add_post">
-      <h1>Add post</h1>
+      <h1 className="title-forum">Add post</h1>
       <div className="profile">
         <div className="circle">
           <PersonIcon className="icon_user" />
         </div>
-        <p>Baptiste</p>
+        <p className="userName">Baptiste</p>
       </div>
       <form onSubmit={handleSubmit(createPost)} className="create_post">
         <div className="add_files">
-          <button className="add_image">
+          {/*<button className="add_image">
             <AddPhotoAlternateIcon className="icon_photo" />
-          </button>
+  </button>*/}
           <input
             type="file"
             accept="image/*"
@@ -64,13 +64,15 @@ const Add_post = ({ lastPost }) => {
           />
         </div>
         <div className="input_arrow">
-          <input className="message" type="text" name="message" />
-          <textarea
-            className="add_txt message"
+          <input
+            className="message"
+            type="text"
+            name="message"
             {...register("content", {
               required: true,
             })}
           />
+          {/*<textarea className="add_txt message" />*/}
           <button type="submit" className="arrow_send" onSubmit={createPost}>
             <ChevronRightIcon className="sent_msg" />
           </button>

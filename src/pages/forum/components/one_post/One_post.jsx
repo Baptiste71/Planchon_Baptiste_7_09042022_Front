@@ -2,48 +2,21 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import "./_one_post.scss";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-import ThumbDownIcon from "@material-ui/icons/ThumbDown";
+import Comments from "../comments/Comments";
 
 // carte complete d'un post: auteur, image, message, commentaire, like/dislike
 
-const One_post = ({ post }) => {
+const One_post = ({ post, comments }) => {
   const { register, handleSubmit } = useForm();
   const token = localStorage.getItem("token");
-  let [like, setLike] = useState(+1);
-  let [dislike, setDislike] = useState(+1);
-
-  const likePost = async (e) => {
-    try {
-      e.preventDefault();
-      const postId = post.id;
-
-      if (setLike) {
-        like = true;
-        dislike = false;
-      } else if (setDislike) {
-        like = false;
-        dislike = true;
-      }
-
-      const dataToSend = [postId, like, dislike];
-      await axios.post(process.env.REACT_APP_BDD_LINK + "/api/posts/:id/like", dataToSend, {
-        headers: {
-          authorization: "Bearer " + token,
-        },
-      });
-    } catch (error) {
-      if (error.response) {
-        console.log(error);
-      }
-    }
-  };
+  const [allCommentsOfPosts, setAllCommentsOfPosts] = useState([]);
 
   const createComment = async (data) => {
     try {
       let dataToSend = new FormData();
 
       dataToSend.append("comment", data.content);
+      dataToSend.append("postId", post.id);
 
       await axios
         .post(process.env.REACT_APP_BDD_LINK + "/api/comments/:id/comment", dataToSend, {
@@ -55,7 +28,7 @@ const One_post = ({ post }) => {
           if (res.status === 201) {
             data.content = null;
             alert("Comment created");
-            post = res.data;
+            post.comments = res.comments;
           } else {
             alert("Comment not created");
           }
@@ -67,20 +40,37 @@ const One_post = ({ post }) => {
     }
   };
 
+  const getComments = async () => {
+    let getAllComments = document.getElementById("cardPost");
+    const allComments = document.getElementById("commentsOfThePost");
+    getAllComments.addEventListener("click", () => {
+      if (getComputedStyle(allComments).display === "none") {
+        allComments.style.display = "block";
+        allComments.style.visibility = "visible";
+        allComments.style.opacity = 1;
+      } else {
+        allComments.style.display = "none";
+      }
+      let postId = post.id;
+      localStorage.setItem(postId);
+    });
+
+    await axios
+      .get(process.env.REACT_APP_BDD_LINK + "/api/comments/:id", {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => setAllCommentsOfPosts(res.data))
+      .catch((err) => console.error(err));
+  };
+
   return (
-    <div className="card">
+    <div id="cardPost" className="card" onClick={getComments}>
       <p className="userName">by: {post.username}</p>
       <img src={post.image} alt="image du post" />
       <p className="msg">{post.message}</p>
       <div className="likesAndComments">
-        <form className="likesAndDislikes" onSubmit={likePost}>
-          <button className="likes" onSubmit={setLike}>
-            <ThumbUpAltIcon /> {like}
-          </button>
-          <button className="dislikes" onSubmit={setDislike}>
-            <ThumbDownIcon /> {dislike}
-          </button>
-        </form>
         <div className="numberOfComments">
           <p className="commentsCounter">comments: {post.commentscounter}</p>
         </div>
@@ -96,6 +86,9 @@ const One_post = ({ post }) => {
           />
           <input type="submit" value="Send" className="btnComment" onSubmit={createComment} />
         </form>
+        {allCommentsOfPosts.map((singleComment, index) => (
+          <Comments key={index} comments={singleComment} />
+        ))}
       </div>
     </div>
   );
