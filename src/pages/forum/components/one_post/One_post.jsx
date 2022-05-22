@@ -70,26 +70,22 @@ const One_post = ({ post, comments }) => {
       <p className="userName">by: {post.username}</p>
       <img src={post.image} alt="image du post" />
       <p className="msg">{post.message}</p>
-      <div className="likesAndComments">
-        <div className="numberOfComments">
-          <p className="commentsCounter">comments: {post.commentscounter}</p>
-        </div>
-        <form className="comments" onSubmit={handleSubmit(createComment)}>
-          <input
-            type="text"
-            name="comments"
-            placeholder="What do you think about this post?"
-            className="inputComment"
-            {...register("content", {
-              required: true,
-            })}
-          />
-          <input type="submit" value="Send" className="btnComment" onSubmit={createComment} />
-        </form>
-        {allCommentsOfPosts.map((singleComment, index) => (
-          <Comments key={index} comments={singleComment} />
-        ))}
-      </div>
+
+      <form className="comments" onSubmit={handleSubmit(createComment)}>
+        <input
+          type="text"
+          name="comments"
+          placeholder="What do you think about this post?"
+          className="messageComment"
+          {...register("content", {
+            required: true,
+          })}
+        />
+        <input type="submit" value="Send" className="arrow_sendComments" onSubmit={createComment} />
+      </form>
+      {allCommentsOfPosts.map((singleComment, index) => (
+        <Comments key={index} comments={singleComment} />
+      ))}
     </div>
   );
 };

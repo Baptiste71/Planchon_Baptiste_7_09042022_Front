@@ -8,7 +8,7 @@ const Home = () => {
       </div>
       <div className="two_parts">
         <div className="presentation">
-          <p>Partagez votre expérience au sein de Groupmania !</p>
+          <p>Partagez votre expérience au sein de Groupomania !</p>
         </div>
         <form className="form-home">
           <button className="btn">

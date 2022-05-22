@@ -20,8 +20,10 @@
   @include profile_desktop;
   @include profile;
   @include flex-direction-row;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 3%;
+  margin-left: 8%;
 }
 
 .circle {
@@ -30,6 +32,7 @@
   width: 50px;
   height: 50px;
   border-radius: 45px;
+  margin-right: 10%;
 }
 
 .icon_user {
@@ -40,10 +43,10 @@
   color: $second-color;
 }
 
-.user_name {
+.userNameAddPost {
   @include police-txt;
+  color: $primary-color;
   font-size: 22px;
-  margin-left: 10%;
 }
 
 .create_post {
@@ -68,6 +71,7 @@
 
 .input_image {
   width: 75%;
+  margin-left: 4%;
 }
 
 .add_image:hover {
@@ -100,6 +104,7 @@ svg.MuiSvgIcon-root.icon_photo {
 
 .input_arrow {
   @include flex-direction-row;
+  justify-content: center;
 }
 
 .arrow_send {
@@ -108,6 +113,12 @@ svg.MuiSvgIcon-root.icon_photo {
   margin-bottom: 20px;
   margin-left: 10px;
   cursor: pointer;
+  border-radius: 13px;
+  background-color: $primary-color;
+  color: $second-color;
+  &:hover {
+    box-shadow: 0px 6px 10px #1d1d1d;
+  }
 }
 
 .add_txt {

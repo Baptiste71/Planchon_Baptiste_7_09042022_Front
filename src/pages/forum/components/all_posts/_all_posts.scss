@@ -51,7 +51,7 @@
   align-items: center;
   border: solid 1px $primary-color;
   border-radius: 13px;
-  background-color: $color-pastel-icon;
+  background-color: $primary-color-dark;
   cursor: pointer;
   margin-bottom: 1%;
   &:hover {
@@ -59,7 +59,7 @@
   }
 }
 
-.userName {
+.userNameLastPost {
   @include police-txt;
   color: $primary-color;
 }

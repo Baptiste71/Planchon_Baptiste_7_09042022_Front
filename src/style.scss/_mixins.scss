@@ -74,6 +74,11 @@
   justify-content: space-between;
 }
 
+@mixin space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 @mixin post_disposition {
   display: flex;
   align-items: center;

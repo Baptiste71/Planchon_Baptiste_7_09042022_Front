@@ -1,0 +1,28 @@
+@import "../../../../style.scss/main.scss";
+
+#commentsOfThePost {
+  @include flex-jc-flexstart;
+  width: 50%;
+  border: 1px solid $primary-color-dark;
+  background-color: $input-color;
+  border-radius: 13px;
+  margin-bottom: 3%;
+  &:hover {
+    box-shadow: 0px 6px 10px #1d1d1d;
+  }
+}
+
+.autor {
+  @include flex-jc-flexstart;
+  @include police-txt-second;
+  align-items: center;
+  color: $primary-color;
+  width: 50%;
+  margin-left: 2%;
+}
+
+.theComment {
+  @include flex-center;
+  width: 50%;
+  text-align: center;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./_comments.scss";
 
 const Comments = ({ post, comments }) => {
   const postComments = () => {
@@ -11,7 +12,7 @@ const Comments = ({ post, comments }) => {
   return (
     <div id="commentsOfThePost" onClick={postComments}>
       <p className="autor">by: {comments.username} </p>
-      <p className="theComment">{comments.comment}</p>
+      <p className="theComment">{comments.comments}</p>
     </div>
   );
 };

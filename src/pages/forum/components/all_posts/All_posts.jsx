@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./_all_posts.scss";
 import One_post from "../one_post/One_post";
 
-const All_posts = ({ lastPost }) => {
+const All_posts = ({ Post, lastPost }) => {
   const [allPosts, setAllPosts] = useState([]);
 
   const token = localStorage.getItem("token");
@@ -42,9 +42,9 @@ const All_posts = ({ lastPost }) => {
 
       <div className="card_post">
         <div className="description_post">
-          <p className="userName">by: {[lastPost]}</p>
+          <p className="userNameLastPost">by: {[lastPost]}</p>
           <img src="" alt="image du post" />
-          <p className="msg">message: {[lastPost]}</p>
+          <p className="msgLastPost">message: {[lastPost]}</p>
         </div>
         {allPosts.map((singlePost, index) => (
           <One_post key={index} post={singlePost} />

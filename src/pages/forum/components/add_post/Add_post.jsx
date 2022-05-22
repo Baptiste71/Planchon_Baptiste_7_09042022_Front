@@ -2,17 +2,16 @@ import React from "react";
 import axios from "axios";
 import "./_add_post.scss";
 import PersonIcon from "@material-ui/icons/Person";
-import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
+
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 import { useForm } from "react-hook-form";
 
 const Add_post = ({ lastPost }) => {
   const { register, handleSubmit } = useForm();
-
+  const token = localStorage.getItem("token");
   const createPost = async (data) => {
     try {
-      const token = localStorage.getItem("token");
       let dataToSend = new FormData();
       dataToSend.append("image", data.image[0]);
       dataToSend.append("message", data.content);
@@ -47,13 +46,10 @@ const Add_post = ({ lastPost }) => {
         <div className="circle">
           <PersonIcon className="icon_user" />
         </div>
-        <p className="userName">Baptiste</p>
+        <p className="userNameAddPost">Baptiste</p>
       </div>
       <form onSubmit={handleSubmit(createPost)} className="create_post">
         <div className="add_files">
-          {/*<button className="add_image">
-            <AddPhotoAlternateIcon className="icon_photo" />
-  </button>*/}
           <input
             type="file"
             accept="image/*"
