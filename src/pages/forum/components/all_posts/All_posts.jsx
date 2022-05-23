@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import "./_all_posts.scss";
 import One_post from "../one_post/One_post";
 
-const All_posts = ({ Post, lastPost }) => {
+const All_posts = () => {
   const [allPosts, setAllPosts] = useState([]);
+  let [lastPost, setlastPost] = useState("");
 
   const token = localStorage.getItem("token");
 
@@ -27,7 +28,7 @@ const All_posts = ({ Post, lastPost }) => {
           authorization: "Bearer " + token,
         },
       })
-      .then((res) => (lastPost = res.data))
+      .then((res) => setlastPost(res.data))
       .catch((err) => console.error(err));
   }, []);
 
@@ -42,9 +43,9 @@ const All_posts = ({ Post, lastPost }) => {
 
       <div className="card_post">
         <div className="description_post">
-          <p className="userNameLastPost">by: {[lastPost]}</p>
-          <img src="" alt="image du post" />
-          <p className="msgLastPost">message: {[lastPost]}</p>
+          <p className="userNameLastPost">by: {lastPost.username}</p>
+          {lastPost.image ? <img src={lastPost.image} alt="image du post" /> : ""}
+          <p className="msgLastPost">message: {lastPost.message}</p>
         </div>
         {allPosts.map((singlePost, index) => (
           <One_post key={index} post={singlePost} />

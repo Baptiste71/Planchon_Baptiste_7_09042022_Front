@@ -51,16 +51,20 @@ const One_post = ({ post, comments }) => {
       } else {
         allComments.style.display = "none";
       }
-      let postId = post.id;
-      localStorage.setItem(postId);
+      //let postId = post.id;
+      //localStorage.setItem(postId);
     });
 
     await axios
-      .get(process.env.REACT_APP_BDD_LINK + "/api/comments/:id", {
-        headers: {
-          authorization: "Bearer " + token,
-        },
-      })
+      .post(
+        process.env.REACT_APP_BDD_LINK + "/api/comments",
+        { id: post.id },
+        {
+          headers: {
+            authorization: "Bearer " + token,
+          },
+        }
+      )
       .then((res) => setAllCommentsOfPosts(res.data))
       .catch((err) => console.error(err));
   };

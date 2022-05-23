@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 
 const DeleteAccount = () => {
   const { handleSubmit } = useForm();
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
   const deleteMyAccount = () => {
@@ -32,6 +33,7 @@ const DeleteAccount = () => {
       .then((res) => {
         if (res.status === 200) {
           localStorage.clear("token");
+          navigate("/home");
           alert("User deleted");
         } else {
           alert("User not deleted");

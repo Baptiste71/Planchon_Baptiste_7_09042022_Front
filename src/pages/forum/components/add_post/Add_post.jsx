@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./_add_post.scss";
 import PersonIcon from "@material-ui/icons/Person";
@@ -10,6 +10,8 @@ import { useForm } from "react-hook-form";
 const Add_post = ({ lastPost }) => {
   const { register, handleSubmit } = useForm();
   const token = localStorage.getItem("token");
+  let [profileName, setProfileName] = useState("");
+
   const createPost = async (data) => {
     try {
       let dataToSend = new FormData();
@@ -24,6 +26,7 @@ const Add_post = ({ lastPost }) => {
         })
         .then((res) => {
           if (res.status === 201) {
+            dataToSend = null;
             data.image = null;
             data.content = null;
             alert("Post created");
@@ -39,6 +42,22 @@ const Add_post = ({ lastPost }) => {
     }
   };
 
+  // profil utilisateur
+  useEffect(() => {
+    axios
+      .get(process.env.REACT_APP_BDD_LINK + "/api/auth/profile", {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          setProfileName(res.data.firstname);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <div className="add_post">
       <h1 className="title-forum">Add post</h1>
@@ -46,7 +65,7 @@ const Add_post = ({ lastPost }) => {
         <div className="circle">
           <PersonIcon className="icon_user" />
         </div>
-        <p className="userNameAddPost">Baptiste</p>
+        <p className="userNameAddPost">{profileName}</p>
       </div>
       <form onSubmit={handleSubmit(createPost)} className="create_post">
         <div className="add_files">
