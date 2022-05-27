@@ -26,3 +26,10 @@
   width: 50%;
   text-align: center;
 }
+
+.deletecomment {
+  color: $primary-color;
+  @include flex-center-home_page;
+  margin-right: 2%;
+  margin-left: 2%;
+}

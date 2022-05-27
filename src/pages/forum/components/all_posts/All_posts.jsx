@@ -42,11 +42,11 @@ const All_posts = () => {
       </div>
 
       <div className="card_post">
-        <div className="description_post">
+        {/*<div className="description_post">
           <p className="userNameLastPost">by: {lastPost.username}</p>
           {lastPost.image ? <img src={lastPost.image} alt="image du post" /> : ""}
-          <p className="msgLastPost">message: {lastPost.message}</p>
-        </div>
+          <p className="msgLastPost">{lastPost.message}</p>
+  </div>*/}
         {allPosts.map((singlePost, index) => (
           <One_post key={index} post={singlePost} />
         ))}

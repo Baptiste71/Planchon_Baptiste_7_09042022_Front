@@ -60,8 +60,21 @@
 }
 
 .userNameLastPost {
+  width: 33%;
+  @include flex-center;
   @include police-txt;
   color: $primary-color;
+  text-align: center;
+}
+
+.msgLastPost {
+  width: 33%;
+  @include flex-center;
+  text-align: center;
+}
+
+.description_post img {
+  width: 33%;
 }
 
 .img_post {

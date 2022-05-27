@@ -51,7 +51,7 @@ const Login = () => {
                 </button>
               </div>
               <div className="login_btn">
-                <button className="login-btn-red">
+                <button type="submit" className="login-btn-red" onClick={auth}>
                   <NavLink className="btn_description" to="/forum">
                     Login
                   </NavLink>
@@ -60,13 +60,13 @@ const Login = () => {
             </div>
           </form>
         </div>
-        <div className="link">
+        {/*<div className="link">
           <div className="link_password">
             <NavLink className="link_forgot" to="/newpassword">
               Forgot Password ?
             </NavLink>
           </div>
-        </div>
+        </div>*/}
       </div>
     </div>
   );

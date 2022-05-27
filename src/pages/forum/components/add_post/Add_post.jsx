@@ -26,10 +26,10 @@ const Add_post = ({ lastPost }) => {
         })
         .then((res) => {
           if (res.status === 201) {
-            dataToSend = null;
             data.image = null;
-            data.content = null;
+            data.content = "";
             alert("Post created");
+            dataToSend.reset();
             lastPost = res.data;
           } else {
             alert("Post not created");

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import CloseIcon from "@material-ui/icons/Close";
 import "./_one_post.scss";
 import Comments from "../comments/Comments";
 
@@ -26,8 +27,8 @@ const One_post = ({ post, comments }) => {
         })
         .then((res) => {
           if (res.status === 201) {
-            data.content = null;
             alert("Comment created");
+            data.content = "";
             post.comments = res.comments;
           } else {
             alert("Comment not created");
@@ -40,21 +41,28 @@ const One_post = ({ post, comments }) => {
     }
   };
 
-  const getComments = async () => {
-    let getAllComments = document.getElementById("cardPost");
-    const allComments = document.getElementById("commentsOfThePost");
-    getAllComments.addEventListener("click", () => {
-      if (getComputedStyle(allComments).display === "none") {
-        allComments.style.display = "block";
-        allComments.style.visibility = "visible";
-        allComments.style.opacity = 1;
-      } else {
-        allComments.style.display = "none";
-      }
-      //let postId = post.id;
-      //localStorage.setItem(postId);
-    });
+  const deletePost = () => {
+    axios
+      .post(
+        process.env.REACT_APP_BDD_LINK + "/api/posts/delete",
+        { id: post.id },
+        {
+          headers: {
+            authorization: "Bearer " + token,
+          },
+        }
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          post.visibility = "hidden";
+          alert("Post deleted");
+        } else {
+          alert("Post not deleted");
+        }
+      });
+  };
 
+  const getComments = async () => {
     await axios
       .post(
         process.env.REACT_APP_BDD_LINK + "/api/comments",
@@ -71,6 +79,9 @@ const One_post = ({ post, comments }) => {
 
   return (
     <div id="cardPost" className="card" onClick={getComments}>
+      <div className="deletePost">
+        <CloseIcon className="deleteCross" onClick={deletePost} />
+      </div>
       <p className="userName">by: {post.username}</p>
       <img src={post.image} alt="image du post" />
       <p className="msg">{post.message}</p>
