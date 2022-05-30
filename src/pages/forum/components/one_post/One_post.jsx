@@ -7,7 +7,7 @@ import Comments from "../comments/Comments";
 
 // carte complete d'un post: auteur, image, message, commentaire, like/dislike
 
-const One_post = ({ post, comments }) => {
+const One_post = ({ post }) => {
   const { register, handleSubmit } = useForm();
   const token = localStorage.getItem("token");
   const [allCommentsOfPosts, setAllCommentsOfPosts] = useState([]);

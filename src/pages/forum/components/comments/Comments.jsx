@@ -3,7 +3,7 @@ import "./_comments.scss";
 import axios from "axios";
 import CloseIcon from "@material-ui/icons/Close";
 
-const Comments = ({ post, comments }) => {
+const Comments = ({ comments }) => {
   const token = localStorage.getItem("token");
 
   //Suppression d'un commentaire

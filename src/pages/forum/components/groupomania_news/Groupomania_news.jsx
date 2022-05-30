@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./_groupomania_news.scss";
 
 const Groupomania_news = () => {
-  const [printText, setPrintText] = useState(false);
+  //const [printText, setPrintText] = useState(false);
 
   return (
     <div className="last_pinned_msg">

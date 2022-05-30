@@ -24,7 +24,6 @@ const Headers_forum = () => {
 
         <button className="params">
           <Link_parameters className="accountParams" />
-          {/*<div className="badge"></div>*/}
         </button>
       </div>
     </div>
