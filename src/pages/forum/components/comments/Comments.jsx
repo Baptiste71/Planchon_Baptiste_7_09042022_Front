@@ -6,6 +6,8 @@ import CloseIcon from "@material-ui/icons/Close";
 const Comments = ({ post, comments }) => {
   const token = localStorage.getItem("token");
 
+  //Suppression d'un commentaire
+
   const deleteComment = () => {
     axios
       .post(

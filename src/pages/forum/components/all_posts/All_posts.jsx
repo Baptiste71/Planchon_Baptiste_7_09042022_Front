@@ -6,8 +6,11 @@ import One_post from "../one_post/One_post";
 const All_posts = () => {
   const [allPosts, setAllPosts] = useState([]);
   let [lastPost, setlastPost] = useState("");
+  let [noPost, setNoPost] = useState("Il n'y a aucun post(s) pour l'instant");
 
   const token = localStorage.getItem("token");
+
+  // Récuperation de tous les posts
 
   const getAllPosts = () => {
     axios
@@ -21,6 +24,7 @@ const All_posts = () => {
   };
 
   // aperçu du dernier post
+
   useEffect(() => {
     axios
       .get(process.env.REACT_APP_BDD_LINK + "/api/posts/last", {
@@ -28,7 +32,13 @@ const All_posts = () => {
           authorization: "Bearer " + token,
         },
       })
-      .then((res) => setlastPost(res.data))
+      .then((res) => {
+        if (res.data) {
+          setlastPost(res.data);
+        } else {
+          setNoPost(noPost);
+        }
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -42,11 +52,11 @@ const All_posts = () => {
       </div>
 
       <div className="card_post">
-        {/*<div className="description_post">
+        <div className="description_post">
           <p className="userNameLastPost">by: {lastPost.username}</p>
-          {lastPost.image ? <img src={lastPost.image} alt="image du post" /> : ""}
+          {lastPost.image ? <img src={lastPost.image} alt="image du post" /> : "" || noPost}
           <p className="msgLastPost">{lastPost.message}</p>
-  </div>*/}
+        </div>
         {allPosts.map((singlePost, index) => (
           <One_post key={index} post={singlePost} />
         ))}

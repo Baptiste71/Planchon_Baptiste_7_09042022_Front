@@ -12,6 +12,10 @@ const One_post = ({ post, comments }) => {
   const token = localStorage.getItem("token");
   const [allCommentsOfPosts, setAllCommentsOfPosts] = useState([]);
 
+  const reloadPage = () => {
+    window.location.reload();
+  };
+
   const createComment = async (data) => {
     try {
       let dataToSend = new FormData();
@@ -41,6 +45,8 @@ const One_post = ({ post, comments }) => {
     }
   };
 
+  // Suppression d'un post
+
   const deletePost = () => {
     axios
       .post(
@@ -56,6 +62,7 @@ const One_post = ({ post, comments }) => {
         if (res.status === 200) {
           post.visibility = "hidden";
           alert("Post deleted");
+          reloadPage();
         } else {
           alert("Post not deleted");
         }

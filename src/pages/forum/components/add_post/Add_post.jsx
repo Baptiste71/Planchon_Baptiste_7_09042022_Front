@@ -12,6 +12,12 @@ const Add_post = ({ lastPost }) => {
   const token = localStorage.getItem("token");
   let [profileName, setProfileName] = useState("");
 
+  const reloadPage = () => {
+    window.location.reload();
+  };
+
+  // Création d'un Post
+
   const createPost = async (data) => {
     try {
       let dataToSend = new FormData();
@@ -29,8 +35,8 @@ const Add_post = ({ lastPost }) => {
             data.image = null;
             data.content = "";
             alert("Post created");
-            dataToSend.reset();
             lastPost = res.data;
+            reloadPage();
           } else {
             alert("Post not created");
           }
@@ -43,6 +49,7 @@ const Add_post = ({ lastPost }) => {
   };
 
   // profil utilisateur
+
   useEffect(() => {
     axios
       .get(process.env.REACT_APP_BDD_LINK + "/api/auth/profile", {

@@ -9,6 +9,8 @@ const DeleteAccount = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
+  // Suppression du compte utilisateur
+
   const deleteMyAccount = () => {
     let deleteButton = document.getElementById("buttonChoice");
     const lastChance = document.getElementById("yesOrNo");
