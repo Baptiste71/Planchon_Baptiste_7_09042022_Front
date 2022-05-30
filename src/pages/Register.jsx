@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
+  const { handleSubmit } = useForm();
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -11,8 +12,7 @@ const Register = () => {
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
 
-  const createUser = async (e) => {
-    e.preventDefault();
+  const createUser = async () => {
     try {
       await axios
         .post(process.env.REACT_APP_BDD_LINK + "/api/auth/user", {
@@ -39,7 +39,7 @@ const Register = () => {
       <div className="all_elements">
         <h1>Register</h1>
         <div className="form_login">
-          <form className="account" onSubmit={createUser}>
+          <form className="account" onSubmit={handleSubmit(createUser)}>
             <div className="login">
               <input className="input_account" type="text" name="firstname" placeholder="Firstname" required onChange={(e) => setFirstname(e.target.value)} />
             </div>
@@ -54,11 +54,7 @@ const Register = () => {
             </div>
             <div className="btn_login-page">
               <div className="login_btn">
-                <button className="login-btn-red-register">
-                  <NavLink className="btn_description" to="/forum">
-                    Login
-                  </NavLink>
-                </button>
+                <button className="login-btn-red-register">Register</button>
               </div>
             </div>
           </form>

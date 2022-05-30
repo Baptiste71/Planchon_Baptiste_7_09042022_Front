@@ -7,46 +7,10 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 import { useForm } from "react-hook-form";
 
-const Add_post = ({ lastPost }) => {
+const Add_post = (props) => {
   const { register, handleSubmit } = useForm();
   const token = localStorage.getItem("token");
   let [profileName, setProfileName] = useState("");
-
-  const reloadPage = () => {
-    window.location.reload();
-  };
-
-  // Création d'un Post
-
-  const createPost = async (data) => {
-    try {
-      let dataToSend = new FormData();
-      dataToSend.append("image", data.image[0]);
-      dataToSend.append("message", data.content);
-
-      await axios
-        .post(process.env.REACT_APP_BDD_LINK + "/api/posts", dataToSend, {
-          headers: {
-            authorization: "Bearer " + token,
-          },
-        })
-        .then((res) => {
-          if (res.status === 201) {
-            data.image = null;
-            data.content = "";
-            alert("Post created");
-            lastPost = res.data;
-            reloadPage();
-          } else {
-            alert("Post not created");
-          }
-        });
-    } catch (error) {
-      if (error.response) {
-        console.log(error);
-      }
-    }
-  };
 
   // profil utilisateur
 
@@ -74,7 +38,7 @@ const Add_post = ({ lastPost }) => {
         </div>
         <p className="userNameAddPost">{profileName}</p>
       </div>
-      <form onSubmit={handleSubmit(createPost)} className="create_post">
+      <form onSubmit={handleSubmit((data) => props.createPost(data))} className="create_post">
         <div className="add_files">
           <input
             type="file"
@@ -95,7 +59,7 @@ const Add_post = ({ lastPost }) => {
             })}
           />
           {/*<textarea className="add_txt message" />*/}
-          <button type="submit" className="arrow_send" onSubmit={createPost}>
+          <button type="submit" className="arrow_send">
             <ChevronRightIcon className="sent_msg" />
           </button>
         </div>

@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { handleSubmit } = useForm();
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
 
-  const auth = async (e) => {
-    e.preventDefault();
+  const auth = async () => {
     try {
       await axios
         .post(process.env.REACT_APP_BDD_LINK + "/api/auth/login", {
@@ -35,7 +36,7 @@ const Login = () => {
       <div className="all_elements">
         <h1>Login</h1>
         <div className="form_login">
-          <form className="account" onSubmit={auth}>
+          <form className="account" onSubmit={handleSubmit(auth)}>
             <div className="login">
               <input className="input_account" type="email" name="user_email" placeholder="Email" required onChange={(e) => setEmail(e.target.value)} />
             </div>
@@ -51,10 +52,8 @@ const Login = () => {
                 </button>
               </div>
               <div className="login_btn">
-                <button type="submit" className="login-btn-red" onClick={auth}>
-                  <NavLink className="btn_description" to="/forum">
-                    Login
-                  </NavLink>
+                <button type="submit" className="login-btn-red btn_description">
+                  Login
                 </button>
               </div>
             </div>

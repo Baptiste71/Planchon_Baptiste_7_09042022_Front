@@ -7,21 +7,17 @@ import Comments from "../comments/Comments";
 
 // carte complete d'un post: auteur, image, message, commentaire, like/dislike
 
-const One_post = ({ post }) => {
+const One_post = (props) => {
   const { register, handleSubmit } = useForm();
   const token = localStorage.getItem("token");
   const [allCommentsOfPosts, setAllCommentsOfPosts] = useState([]);
-
-  const reloadPage = () => {
-    window.location.reload();
-  };
 
   const createComment = async (data) => {
     try {
       let dataToSend = new FormData();
 
       dataToSend.append("comment", data.content);
-      dataToSend.append("postId", post.id);
+      dataToSend.append("postId", props.post.id);
 
       await axios
         .post(process.env.REACT_APP_BDD_LINK + "/api/comments/:id/comment", dataToSend, {
@@ -32,8 +28,9 @@ const One_post = ({ post }) => {
         .then((res) => {
           if (res.status === 201) {
             alert("Comment created");
+            getComments();
             data.content = "";
-            post.comments = res.comments;
+            props.post.comments = res.comments;
           } else {
             alert("Comment not created");
           }
@@ -51,7 +48,7 @@ const One_post = ({ post }) => {
     axios
       .post(
         process.env.REACT_APP_BDD_LINK + "/api/posts/delete",
-        { id: post.id },
+        { id: props.post.id },
         {
           headers: {
             authorization: "Bearer " + token,
@@ -60,9 +57,10 @@ const One_post = ({ post }) => {
       )
       .then((res) => {
         if (res.status === 200) {
-          post.visibility = "hidden";
+          props.post.visibility = "hidden";
           alert("Post deleted");
-          reloadPage();
+          props.getAllPosts();
+          props.getLastPost();
         } else {
           alert("Post not deleted");
         }
@@ -73,7 +71,7 @@ const One_post = ({ post }) => {
     await axios
       .post(
         process.env.REACT_APP_BDD_LINK + "/api/comments",
-        { id: post.id },
+        { id: props.post.id },
         {
           headers: {
             authorization: "Bearer " + token,
@@ -89,9 +87,9 @@ const One_post = ({ post }) => {
       <div className="deletePost">
         <CloseIcon className="deleteCross" onClick={deletePost} />
       </div>
-      <p className="userName">by: {post.username}</p>
-      <img src={post.image} alt="image du post" />
-      <p className="msg">{post.message}</p>
+      <p className="userName">by: {props.post.username}</p>
+      <img src={props.post.image} alt="image du post" />
+      <p className="msg">{props.post.message}</p>
 
       <form className="comments" onSubmit={handleSubmit(createComment)}>
         <input
