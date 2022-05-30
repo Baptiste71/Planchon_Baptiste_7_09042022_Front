@@ -13,7 +13,7 @@
 }
 
 .card img {
-  width: 70%;
+  width: 35%;
 }
 
 .msg {
@@ -21,7 +21,7 @@
   text-align: center;
   @include flex-center;
   margin-bottom: 6%;
-  color: $second-color;
+  color: $primary-color-dark;
 }
 
 .userName {

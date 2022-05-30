@@ -7,15 +7,19 @@ const All_posts = (props) => {
     <div className="last_post">
       <h1 className="title-forum">All posts</h1>
       <div className="btn-seeAll">
-        <button onClick={() => props.getAllPosts()} className="see_all_post">
-          See all
-        </button>
+        {!props.allPosts.length ? (
+          <button onClick={() => props.getAllPosts()} className="see_all_post">
+            See all
+          </button>
+        ) : (
+          ""
+        )}
       </div>
 
       <div className="card_post">
         {!props.allPosts.length ? (
           <div className="description_post">
-            <p className="userNameLastPost">by: {props.lastPost.username || props.noPost}</p>
+            <p className="userNameLastPost">{props.lastPost.username || props.noPost}</p>
             {props.lastPost.image ? <img src={props.lastPost.image} alt="image du post" /> : ""}
             <p className="msgLastPost">{props.lastPost.message}</p>
           </div>

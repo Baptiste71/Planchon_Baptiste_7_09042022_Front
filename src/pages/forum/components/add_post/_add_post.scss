@@ -3,7 +3,7 @@
 .add_post {
   @include add_post;
   @include section_forum;
-  background-color: $background-color-forum;
+  background-color: $second-color;
   margin-top: 20px;
   margin-left: 5%;
 }

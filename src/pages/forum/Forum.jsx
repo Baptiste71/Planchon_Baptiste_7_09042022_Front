@@ -63,9 +63,9 @@ const Forum = () => {
         })
         .then((res) => {
           if (res.status === 201) {
-            dataToSend.image = null;
-            dataToSend.content = "";
             alert("Post created");
+            dataToSend.delete("image", "message");
+
             getLastPost();
             if (allPosts.length) {
               getAllPosts();
