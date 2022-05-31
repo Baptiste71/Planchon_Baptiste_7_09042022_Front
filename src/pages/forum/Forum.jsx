@@ -10,6 +10,7 @@ const Forum = () => {
   const [allPosts, setAllPosts] = useState([]);
   let [lastPost, setlastPost] = useState("");
   let [noPost, setNoPost] = useState("Il n'y a aucun post(s) pour l'instant");
+  let [noImage, setNoImage] = useState("Il n'y pas d'image pour ce post");
 
   const token = localStorage.getItem("token");
 
@@ -40,6 +41,7 @@ const Forum = () => {
           setlastPost(res.data);
         } else {
           setNoPost(noPost);
+          setNoImage();
         }
       })
       .catch((err) => console.error(err));
@@ -87,7 +89,7 @@ const Forum = () => {
       <div className="sections_forum">
         <div className="posts">
           <Groupomania_news />
-          <All_posts lastPost={lastPost} allPosts={allPosts} noPost={noPost} getAllPosts={getAllPosts} getLastPost={getLastPost} />
+          <All_posts lastPost={lastPost} allPosts={allPosts} noPost={noPost} noImage={noImage} getAllPosts={getAllPosts} getLastPost={getLastPost} />
         </div>
         <Add_post createPost={createPost} />
       </div>

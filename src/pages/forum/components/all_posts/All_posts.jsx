@@ -20,7 +20,7 @@ const All_posts = (props) => {
         {!props.allPosts.length ? (
           <div className="description_post">
             <p className="userNameLastPost">{props.lastPost.username || props.noPost}</p>
-            {props.lastPost.image ? <img src={props.lastPost.image} alt="image du post" /> : ""}
+            {props.lastPost.image ? <img src={props.lastPost.image} alt="image du post" /> : "" || props.noImage}
             <p className="msgLastPost">{props.lastPost.message}</p>
           </div>
         ) : (

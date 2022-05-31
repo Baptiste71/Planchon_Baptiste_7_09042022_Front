@@ -88,7 +88,7 @@ const One_post = (props) => {
         <CloseIcon className="deleteCross" onClick={deletePost} />
       </div>
       <p className="userName">by: {props.post.username}</p>
-      <img src={props.post.image} alt="image du post" />
+      {props.post.image ? <img src={props.post.image} alt="image du post" /> : ""}
       <p className="msg">{props.post.message}</p>
 
       <form className="comments" onSubmit={handleSubmit(createComment)}>
